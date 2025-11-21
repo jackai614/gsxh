@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="内黄县果树协会 - 最新新闻动态，包括协会活动、技术培训、政策解读等最新资讯">
+    <meta name="keywords" content="内黄县果树协会,新闻动态,协会活动,技术培训,农业新闻">
+    <title>新闻动态 - 内黄县果树协会</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preload" href="fonts/noto-sans-sc.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="canonical" href="https://nhxgsxh.com/a/news/">
+
+    <style>
+        /* 新闻页面专用样式 */
+        :root {
+            --primary-color: #2e7d32;
+            --primary-dark: #1b5e20;
+            --primary-light: #4caf50;
+            --secondary-color: #ff9800;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --background-light: #f8f9fa;
+            --white: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+        }
+
+        .news-page-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 100px 0 40px;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .news-filters {
+            background: var(--background-light);
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .filter-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid var(--border-color);
+            border-radius: 25px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .filter-options {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-select {
+            padding: 0.8rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            background: var(--white);
+            font-size: 1rem;
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .filter-select:focus {
+            border-color: var(--primary-color);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .news-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .news-image {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .news-card:hover .news-image img {
+            transform: scale(1.05);
+        }
+
+        .breadcrumb a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 1;
+        }
+
+        .news-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-category {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .news-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .news-title a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .news-title a:hover {
+            color: var(--primary-color);
+        }
+
+        .news-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .news-excerpt {
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 3rem 0;
+        }
+
+        .page-btn {
+            padding: 0.8rem 1.2rem;
+            border: 1px solid var(--border-color);
+            background: var(--white);
+            color: var(--text-dark);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .page-btn:hover:not(.disabled):not(.active) {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .page-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        .page-btn.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 768px) {
+            .filter-content {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                min-width: 100%;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .news-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-brand">
+                <a href="/" class="logo-link">
+                    <img src="/images/logo.png" alt="内黄县果树协会" width="120" height="60" loading="lazy">
+                </a>
+            </div>
+
+            <button class="mobile-menu-btn" aria-label="切换菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="/" class="nav-link">首页</a></li>
+                <li class="nav-item"><a href="/a/about.html" class="nav-link">关于协会</a></li>
+                <li class="nav-item"><a href="/a/news.html" class="nav-link active">新闻动态</a></li>
+                <li class="nav-item"><a href="/a/technology.html" class="nav-link">种植技术</a></li>
+                <li class="nav-item"><a href="/a/products.html" class="nav-link">产品展示</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">联系我们</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 页面标题区域 -->
+    <section class="news-page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">首页</a>
+                <span class="separator">/</span>
+                <span class="current">新闻动态</span>
+            </div>
+            <h1 class="page-title">新闻动态</h1>
+            <p class="page-subtitle">了解内黄县果树协会最新动态和行业资讯</p>
+        </div>
+    </section>
+
+    <!-- 筛选区域 -->
+    <section class="news-filters">
+        <div class="container">
+            <div class="filter-content">
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="搜索新闻..." id="newsSearch">
+                    <button class="search-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="filter-options">
+                    <select class="filter-select" id="categoryFilter">
+                        <option value="all">全部分类</option>
+                        <option value="activity">协会活动</option>
+                        <option value="training">技术培训</option>
+                        <option value="policy">政策解读</option>
+                        <option value="industry">行业资讯</option>
+                    </select>
+
+                    <select class="filter-select" id="sortFilter">
+                        <option value="newest">最新发布</option>
+                        <option value="popular">最多阅读</option>
+                        <option value="hot">热点新闻</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新闻列表 -->
+    <section class="news-section">
+        <div class="container">
+            <div class="news-grid" id="newsGrid">
+                <!-- 新闻项1 -->
+                <article class="news-card" data-category="activity" data-date="2024-03-20">
+                    <div class="news-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3C/svg%3E"
+                            data-src="images/news1.jpg" alt="春季果树管理培训" loading="lazy">
+                        <div class="news-badge">热门</div>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-category">协会活动</span>
+                        <h3 class="news-title"><a href="/a/news-detail.html">春季果树管理技术培训会成功举办</a></h3>
+                        <div class="news-meta">
+                            <span>📅 2024-03-20</span>
+                            <span>👤 作者：张技术员</span>
+                            <span>👁️ 128 阅读</span>
+                        </div>
+                        <p class="news-excerpt">协会于3月15日成功举办春季果树管理技术培训会，吸引了200多名果农参加，专家现场讲解修剪、施肥等关键技术...</p>
+                        <a href="/a/news-detail.html" class="read-more">阅读全文 →</a>
+                    </div>
+                </article>
+
+                <!-- 新闻项2 -->
+                <article class="news-card" data-category="training" data-date="2024-03-15">
+                    <div class="news-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3C/svg%3E"
+                            data-src="images/news2.jpg" alt="新品种引进" loading="lazy">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-category">技术培训</span>
+                        <h3 class="news-title"><a href="/a/news-detail.html">协会成功引进优质果树新品种</a></h3>
+                        <div class="news-meta">
+                            <span>📅 2024-03-15</span>
+                            <span>👤 作者：李专家</span>
+                            <span>👁️ 95 阅读</span>
+                        </div>
+                        <p class="news-excerpt">经过多方考察，协会成功引进适合本地种植的优质果树新品种，将显著提升果农经济效益...</p>
+                        <a href="/a/news-detail.html" class="read-more">阅读全文 →</a>
+                    </div>
+                </article>
+
+                <!-- 新闻项3 -->
+                <article class="news-card" data-category="policy" data-date="2024-03-10">
+                    <div class="news-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3C/svg%3E"
+                            data-src="images/news3.jpg" alt="政策解读" loading="lazy">
+                        <div class="news-badge">最新</div>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-category">政策解读</span>
+                        <h3 class="news-title"><a href="/a/news-detail.html">2024年农业补贴政策解读</a></h3>
+                        <div class="news-meta">
+                            <span>📅 2024-03-10</span>
+                            <span>👤 作者：王主任</span>
+                            <span>👁️ 156 阅读</span>
+                        </div>
+                        <p class="news-excerpt">详细解读2024年农业补贴政策，帮助果农了解申报流程和注意事项，确保政策红利落到实处...</p>
+                        <a href="/a/news-detail.html" class="read-more">阅读全文 →</a>
+                    </div>
+                </article>
+
+                <!-- 更多新闻项... -->
+            </div>
+
+            <!-- 分页 -->
+            <div class="pagination">
+                <button class="page-btn disabled">上一页</button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <span class="page-ellipsis">...</span>
+                <button class="page-btn">下一页</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>内黄县果树协会</h3>
+                    <p>专业果树种植技术推广与科普示范</p>
+                    <div class="contact-info">
+                        <p>📞 13569022233</p>
+                        <!-- <p>📧 nhxgsxh@163.com</p> -->
+                        <p>📍 河南省内黄县果树协会示范研究基地</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/a/about.html">关于协会</a></li>
+                        <li><a href="/a/news.html">新闻动态</a></li>
+                        <li><a href="/a/technology.html">种植技术</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>会员服务</h4>
+                    <ul>
+                        <li><a href="member.html">会员申请</a></li>
+                        <li><a href="download.html">资料下载</a></li>
+                        <li><a href="qa.html">常见问题</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2005-<span id="year"></span> 内黄县果树协会. 版权所有.<a target="_blank" style="color: #ccc;" href="https://beian.miit.gov.cn/">豫ICP备2024098861号-1</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 图片懒加载实现
+        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    const dataSrc = img.getAttribute('data-src');
+                    if (dataSrc) {
+                        img.src = dataSrc;
+                        img.classList.add('loaded');
+                    }
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        lazyImages.forEach(img => {
+            if (!img.hasAttribute('data-src')) {
+                img.setAttribute('data-src', img.src);
+                img.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1"%3E%3C/svg%3E';
+            }
+            imageObserver.observe(img);
+        });
+        // 新闻页面功能
+        document.addEventListener('DOMContentLoaded', function () {
+            // 移动端菜单
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function () {
+                    navMenu.classList.toggle('active');
+                    this.classList.toggle('active');
+                });
+            }
+
+            // 搜索功能
+            const searchInput = document.getElementById('newsSearch');
+            const searchBtn = document.querySelector('.search-btn');
+
+            function performSearch() {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                const newsCards = document.querySelectorAll('.news-card');
+
+                newsCards.forEach(card => {
+                    const title = card.querySelector('.news-title').textContent.toLowerCase();
+                    const excerpt = card.querySelector('.news-excerpt').textContent.toLowerCase();
+
+                    if (searchTerm === '' || title.includes(searchTerm) || excerpt.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            searchBtn.addEventListener('click', performSearch);
+            searchInput.addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+
+            // 筛选功能
+            const categoryFilter = document.getElementById('categoryFilter');
+            const sortFilter = document.getElementById('sortFilter');
+
+            function applyFilters() {
+                const selectedCategory = categoryFilter.value;
+                const newsCards = document.querySelectorAll('.news-card');
+
+                newsCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    const isVisible = card.style.display !== 'none';
+
+                    if ((selectedCategory === 'all' || cardCategory === selectedCategory) && isVisible) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            categoryFilter.addEventListener('change', applyFilters);
+            sortFilter.addEventListener('change', applyFilters);
+
+            // 图片懒加载
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.getAttribute('data-src');
+                        img.classList.add('loaded');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            lazyImages.forEach(img => {
+                imageObserver.observe(img);
+            });
+
+            // 分页功能
+            const pageBtns = document.querySelectorAll('.page-btn');
+            pageBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    if (this.classList.contains('disabled')) return;
+
+                    pageBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

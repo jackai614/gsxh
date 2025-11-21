@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="内黄县果树协会 - 优质果树产品展示，包括新鲜水果、果树苗木、种植工具等农业产品">
+    <meta name="keywords" content="果树产品,水果,苗木,种植工具,内黄县果树协会">
+    <title>产品展示 - 内黄县果树协会</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/products.css">
+    <link rel="preload" href="fonts/noto-sans-sc.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="canonical" href="https://nhxgsxh.com/a/products/">
+    
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "产品展示 - 内黄县果树协会",
+        "description": "优质果树产品展示，包括新鲜水果、果树苗木、种植工具等",
+        "url": "https://nhxgsxh.com/a/products/",
+        "mainEntity": {
+            "@type": "ItemList",
+            "numberOfItems": 12,
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                        "@type": "Product",
+                        "name": "红富士苹果",
+                        "description": "优质红富士苹果，果肉脆甜多汁"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-brand">
+                <a href="/" class="logo-link">
+                    <img src="/images/logo.png" alt="内黄县果树协会" width="120" height="60" loading="lazy">
+                </a>
+            </div>
+            
+            <!-- 移动端菜单按钮 -->
+            <button class="mobile-menu-btn" aria-label="切换菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <!-- 主导航 -->
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="/" class="nav-link">首页</a></li>
+                <li class="nav-item"><a href="/a/about.html" class="nav-link">关于协会</a></li>
+                <li class="nav-item"><a href="/a/news.html" class="nav-link">新闻动态</a></li>
+                <li class="nav-item"><a href="/a/technology.html" class="nav-link">种植技术</a></li>
+                <li class="nav-item"><a href="/a/products.html" class="nav-link active">产品展示</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">联系我们</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 页面标题和面包屑导航 -->
+    <section class="page-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">首页</a>
+                <span class="separator">/</span>
+                <span class="current">产品展示</span>
+            </div>
+            <h1 class="page-title">优质果树产品展示</h1>
+            <p class="page-subtitle">精选内黄县优质果树产品，包括新鲜水果、苗木和种植工具</p>
+        </div>
+    </section>
+
+    <!-- 产品筛选区域 -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-content">
+                <div class="search-box">
+                    <input type="text" id="productSearch" placeholder="搜索产品..." class="search-input">
+                    <button class="search-btn" aria-label="搜索">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="filter-options">
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="all">所有分类</option>
+                        <option value="fruit">新鲜水果</option>
+                        <option value="seedling">果树苗木</option>
+                        <option value="tool">种植工具</option>
+                        <option value="other">其他产品</option>
+                    </select>
+                    
+                    <select id="sortFilter" class="filter-select">
+                        <option value="newest">最新上架</option>
+                        <option value="price-asc">价格从低到高</option>
+                        <option value="price-desc">价格从高到低</option>
+                        <option value="popular">最受欢迎</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品展示区域 -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-grid" id="productsGrid">
+                <!-- 产品卡片1 -->
+                <article class="product-card" data-category="fruit" data-price="25.8" data-popularity="158">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3C/svg%3E" data-src="/images/product1.jpg" alt="红富士苹果" loading="lazy" width="300" height="200">
+                        <div class="product-badge">热卖</div>
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">新鲜水果</span>
+                        <h3 class="product-title"><a href="/a/product-detail.html">红富士苹果</a></h3>
+                        <p class="product-desc">果肉脆甜多汁，色泽鲜艳，品质优良</p>
+                        <div class="product-meta">
+                            <span class="product-price">¥25.8/斤</span>
+                            <span class="product-stock">库存: 充足</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn">加入购物车</button>
+                            <button class="view-details-btn">查看详情</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 产品卡片2 -->
+                <article class="product-card" data-category="fruit" data-price="18.5" data-popularity="124">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3C/svg%3E" data-src="/images/product2.jpg" alt="巨峰葡萄" loading="lazy" width="300" height="200">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">新鲜水果</span>
+                        <h3 class="product-title"><a href="/a/product-detail.html">巨峰葡萄</a></h3>
+                        <p class="product-desc">果粒饱满，甜度高，口感极佳</p>
+                        <div class="product-meta">
+                            <span class="product-price">¥18.5/斤</span>
+                            <span class="product-stock">库存: 充足</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn">加入购物车</button>
+                            <button class="view-details-btn">查看详情</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 产品卡片3 -->
+                <article class="product-card" data-category="seedling" data-price="45.0" data-popularity="89">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3C/svg%3E" data-src="/images/product3.jpg" alt="苹果树苗" loading="lazy" width="300" height="200">
+                        <div class="product-badge">新品</div>
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">果树苗木</span>
+                        <h3 class="product-title"><a href="/a/product-detail.html">苹果树苗</a></h3>
+                        <p class="product-desc">优质嫁接苗，成活率高，结果早</p>
+                        <div class="product-meta">
+                            <span class="product-price">¥45.0/株</span>
+                            <span class="product-stock">库存: 充足</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn">加入购物车</button>
+                            <button class="view-details-btn">查看详情</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 产品卡片4 -->
+                <article class="product-card" data-category="seedling" data-price="38.0" data-popularity="76">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3C/svg%3E" data-src="/images/product4.jpg" alt="葡萄苗" loading="lazy" width="300" height="200">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">果树苗木</span>
+                        <h3 class="product-title"><a href="/a/product-detail.html">葡萄苗</a></h3>
+                        <p class="product-desc">优质品种，适应性强，丰产性好</p>
+                        <div class="product-meta">
+                            <span class="product-price">¥38.0/株</span>
+                            <span class="product-stock">库存: 充足</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn">加入购物车</button>
+                            <button class="view-details-btn">查看详情</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 产品卡片5 -->
+                <article class="product-card" data-category="tool" data-price="120.0" data-popularity="112">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3C/svg%3E" data-src="/images/product5.jpg" alt="果树修剪工具套装" loading="lazy" width="300" height="200">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">种植工具</span>
+                        <h3 class="product-title"><a href="/a/product-detail.html">果树修剪工具套装</a></h3>
+                        <p class="product-desc">专业修剪工具，耐用锋利，操作便捷</p>
+                        <div class="product-meta">
+                            <span class="product-price">¥120.0/套</span>
+                            <span class="product-stock">库存: 充足</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn">加入购物车</button>
+                            <button class="view-details-btn">查看详情</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 产品卡片6 -->
+                <article class="product-card" data-category="tool" data-price="85.0" data-popularity="94">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3C/svg%3E" data-src="/images/product6.jpg" alt="果园喷雾器" loading="lazy" width="300" height="200">
+                        <div class="product-badge">特惠</div>
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">种植工具</span>
+                        <h3 class="product-title"><a href="/a/product-detail.html">果园喷雾器</a></h3>
+                        <p class="product-desc">高效喷雾，均匀覆盖，省时省力</p>
+                        <div class="product-meta">
+                            <span class="product-price">¥85.0/台</span>
+                            <span class="product-stock">库存: 充足</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn">加入购物车</button>
+                            <button class="view-details-btn">查看详情</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 产品卡片7 -->
+                <article class="product-card" data-category="other" data-price="15.0" data-popularity="67">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3C/svg%3E" data-src="/images/product7.jpg" alt="有机肥料" loading="lazy" width="300" height="200">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">其他产品</span>
+                        <h3 class="product-title"><a href="/a/product-detail.html">有机肥料</a></h3>
+                        <p class="product-desc">纯天然有机肥，改良土壤，促进生长</p>
+                        <div class="product-meta">
+                            <span class="product-price">¥15.0/公斤</span>
+                            <span class="product-stock">库存: 充足</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn">加入购物车</button>
+                            <button class="view-details-btn">查看详情</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 产品卡片8 -->
+                <article class="product-card" data-category="other" data-price="28.0" data-popularity="82">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3C/svg%3E" data-src="/images/product8.jpg" alt="果树防虫网" loading="lazy" width="300" height="200">
+                    </div>
+                    <div class="product-content">
+                        <span class="product-category">其他产品</span>
+                        <h3 class="product-title"><a href="/a/product-detail.html">果树防虫网</a></h3>
+                        <p class="product-desc">防虫防鸟，透气透光，保护果实</p>
+                        <div class="product-meta">
+                            <span class="product-price">¥28.0/平方米</span>
+                            <span class="product-stock">库存: 充足</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart-btn">加入购物车</button>
+                            <button class="view-details-btn">查看详情</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- 分页导航 -->
+            <div class="pagination">
+                <button class="page-btn disabled">上一页</button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <span class="page-ellipsis">...</span>
+                <button class="page-btn">下一页</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品分类导航 -->
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title">产品分类</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <img src="/images/category1.jpg" alt="新鲜水果" loading="lazy" width="200" height="150">
+                    <h3>新鲜水果</h3>
+                    <p>当季新鲜水果，品质保证</p>
+                    <a href="#fruit" class="category-link">查看全部</a>
+                </div>
+                <div class="category-card">
+                    <img src="/images/category2.jpg" alt="果树苗木" loading="lazy" width="200" height="150">
+                    <h3>果树苗木</h3>
+                    <p>优质果树苗，成活率高</p>
+                    <a href="#seedling" class="category-link">查看全部</a>
+                </div>
+                <div class="category-card">
+                    <img src="/images/category3.jpg" alt="种植工具" loading="lazy" width="200" height="150">
+                    <h3>种植工具</h3>
+                    <p>专业工具，助力种植</p>
+                    <a href="#tool" class="category-link">查看全部</a>
+                </div>
+                <div class="category-card">
+                    <img src="/images/category4.jpg" alt="其他产品" loading="lazy" width="200" height="150">
+                    <h3>其他产品</h3>
+                    <p>肥料、防护网等配套产品</p>
+                    <a href="#other" class="category-link">查看全部</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>内黄县果树协会</h3>
+                    <p>专业果树种植技术推广与科普示范</p>
+                    <div class="contact-info">
+                        <p>📞 13569022233</p>
+                        <!-- <p>📧 nhxgsxh@163.com</p> -->
+                        <p>📍 河南省内黄县果树协会示范研究基地</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/a/about.html">关于协会</a></li>
+                        <li><a href="/a/news.html">新闻动态</a></li>
+                        <li><a href="/a/technology.html">种植技术</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>会员服务</h4>
+                    <ul>
+                        <li><a href="member.html">会员申请</a></li>
+                        <li><a href="download.html">资料下载</a></li>
+                        <li><a href="qa.html">常见问题</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2005-<span id="year"></span> 内黄县果树协会. 版权所有.<a target="_blank" style="color: #ccc;" href="https://beian.miit.gov.cn/">豫ICP备2024098861号-1</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/products.js"></script>
+</body>
+</html>

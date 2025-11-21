@@ -1,0 +1,310 @@
+// 种植技术页面专用JavaScript
+document.addEventListener('DOMContentLoaded', function() {
+    // 技术分类筛选功能
+    const categoryBtns = document.querySelectorAll('.category-btn, .category-link');
+    const techArticles = document.querySelectorAll('.tech-article');
+    const totalResults = document.getElementById('totalResults');
+    
+    // 分类筛选功能
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const category = this.getAttribute('data-category');
+            
+            // 更新活动状态
+            categoryBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            // 筛选文章
+            let visibleCount = 0;
+            techArticles.forEach(article => {
+                if (category === 'all' || article.getAttribute('data-category') === category) {
+                    article.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+            
+            // 更新结果计数
+            if (totalResults) {
+                totalResults.textContent = visibleCount;
+            }
+        });
+    });
+
+    // 搜索功能
+    const searchInput = document.getElementById('techSearch');
+    const searchBtn = document.querySelector('.search-btn');
+    
+    function performSearch() {
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        
+        if (searchTerm === '') {
+            // 显示所有文章
+            techArticles.forEach(article => {
+                article.style.display = 'flex';
+            });
+            if (totalResults) {
+                totalResults.textContent = techArticles.length;
+            }
+            return;
+        }
+        
+        let foundCount = 0;
+        techArticles.forEach(article => {
+            const title = article.querySelector('h3 a').textContent.toLowerCase();
+            const excerpt = article.querySelector('.article-excerpt').textContent.toLowerCase();
+            const tags = article.querySelector('.article-tags').textContent.toLowerCase();
+            
+            if (title.includes(searchTerm) || excerpt.includes(searchTerm) || tags.includes(searchTerm)) {
+                article.style.display = 'flex';
+                foundCount++;
+                
+                // 高亮搜索关键词
+                highlightSearchTerm(article, searchTerm);
+            } else {
+                article.style.display = 'none';
+            }
+        });
+        
+        if (totalResults) {
+            totalResults.textContent = foundCount;
+        }
+    }
+    
+    function highlightSearchTerm(element, term) {
+        const textElements = element.querySelectorAll('h3 a, .article-excerpt, .article-tags');
+        textElements.forEach(textElement => {
+            const originalHTML = textElement.innerHTML;
+            const regex = new RegExp(`(${term})`, 'gi');
+            const highlightedHTML = originalHTML.replace(regex, '<mark>$1</mark>');
+            textElement.innerHTML = highlightedHTML;
+        });
+    }
+    
+    // 搜索事件监听
+    if (searchBtn) {
+        searchBtn.addEventListener('click', performSearch);
+    }
+    
+    if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+        
+        // 防抖搜索
+        searchInput.addEventListener('input', debounce(function(e) {
+            if (e.target.value.trim() === '') {
+                performSearch();
+            }
+        }, 300));
+    }
+
+    // 排序功能
+    const sortSelect = document.getElementById('sortSelect');
+    if (sortSelect) {
+        sortSelect.addEventListener('change', function() {
+            const sortBy = this.value;
+            sortArticles(sortBy);
+        });
+    }
+    
+    function sortArticles(sortBy) {
+        const articlesContainer = document.getElementById('techArticles');
+        const articlesArray = Array.from(techArticles);
+        
+        articlesArray.sort((a, b) => {
+            switch (sortBy) {
+                case 'newest':
+                    const dateA = new Date(a.querySelector('.date').textContent.replace('📅 ', ''));
+                    const dateB = new Date(b.querySelector('.date').textContent.replace('📅 ', ''));
+                    return dateB - dateA;
+                    
+                case 'popular':
+                    const popularityA = parseInt(a.getAttribute('data-popularity'));
+                    const popularityB = parseInt(b.getAttribute('data-popularity'));
+                    return popularityB - popularityA;
+                    
+                case 'hot':
+                    // 综合排序（阅读量 + 时效性）
+                    const popA = parseInt(a.getAttribute('data-popularity'));
+                    const popB = parseInt(b.getAttribute('data-popularity'));
+                    const dateAA = new Date(a.querySelector('.date').textContent.replace('📅 ', ''));
+                    const dateBB = new Date(b.querySelector('.date').textContent.replace('📅 ', ''));
+                    const timeDiff = (dateBB - dateAA) / (1000 * 60 * 60 * 24); // 天数差
+                    const hotScoreA = popA / Math.max(1, timeDiff);
+                    const hotScoreB = popB / Math.max(1, timeDiff);
+                    return hotScoreB - hotScoreA;
+                    
+                default:
+                    return 0;
+            }
+        });
+        
+        // 重新排列文章
+        articlesArray.forEach(article => {
+            articlesContainer.appendChild(article);
+        });
+    }
+
+    // 分页功能
+    const pageBtns = document.querySelectorAll('.page-btn');
+    pageBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            if (this.classList.contains('disabled')) return;
+            
+            // 更新活动状态
+            pageBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            // 这里可以添加AJAX加载更多文章的功能
+            // loadMoreArticles(currentPage);
+        });
+    });
+
+    // 资料下载跟踪
+    const downloadLinks = document.querySelectorAll('.download-item');
+    downloadLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const fileName = this.querySelector('.file-name').textContent;
+            trackDownload(fileName);
+        });
+    });
+    
+    function trackDownload(fileName) {
+        // 这里可以集成下载统计
+        console.log('文件下载:', fileName);
+        // gtag('event', 'download', { 'file_name': fileName });
+    }
+
+    // 图片懒加载
+    const techImages = document.querySelectorAll('.tech-article img, .featured-card img, .sidebar-card img');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                const dataSrc = img.getAttribute('data-src');
+                if (dataSrc) {
+                    img.src = dataSrc;
+                    img.classList.add('loaded');
+                }
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+
+    techImages.forEach(img => {
+        if (!img.hasAttribute('data-src')) {
+            img.setAttribute('data-src', img.src);
+            img.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1"%3E%3C/svg%3E';
+        }
+        imageObserver.observe(img);
+    });
+
+    // 阅读量模拟（实际项目中应该从后端获取）
+    function simulatePageView() {
+        const articles = document.querySelectorAll('.tech-article');
+        articles.forEach(article => {
+            const viewsElement = article.querySelector('.views');
+            if (viewsElement) {
+                const currentViews = parseInt(article.getAttribute('data-popularity'));
+                // 每次页面访问增加随机阅读量
+                const newViews = currentViews + Math.floor(Math.random() * 10);
+                article.setAttribute('data-popularity', newViews);
+                viewsElement.textContent = '👁️ ' + newViews.toLocaleString() + ' 阅读';
+            }
+        });
+    }
+
+    // 页面访问统计
+    function trackTechnologyPageView() {
+        const pageTitle = '种植技术页面';
+        const pageUrl = window.location.href;
+        
+        console.log('技术页面访问:', pageTitle, pageUrl);
+        // 这里可以集成统计代码
+        // gtag('config', 'GA_MEASUREMENT_ID', { page_title: pageTitle, page_location: pageUrl });
+        
+        // 模拟增加阅读量
+        setTimeout(simulatePageView, 1000);
+    }
+
+    // 工具函数
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    // 初始化页面功能
+    trackTechnologyPageView();
+    
+    // 设置结构化数据
+    setTechnologyStructuredData();
+});
+
+// SEO优化功能
+function setTechnologyStructuredData() {
+    const structuredData = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "种植技术 - 内黄县果树协会",
+        "description": "专业果树种植技术指导，包括修剪、病虫害防治、施肥管理等全方位技术内容",
+        "url": window.location.href,
+        "mainEntity": {
+            "@type": "ItemList",
+            "numberOfItems": document.querySelectorAll('.tech-article').length,
+            "itemListElement": Array.from(document.querySelectorAll('.tech-article')).map((article, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "item": {
+                    "@type": "Article",
+                    "headline": article.querySelector('h3 a').textContent,
+                    "description": article.querySelector('.article-excerpt').textContent,
+                    "datePublished": article.querySelector('.date').textContent.replace('📅 ', ''),
+                    "author": {
+                        "@type": "Person",
+                        "name": article.querySelector('.author').textContent.replace('👤 ', '')
+                    }
+                }
+            }))
+        }
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(structuredData);
+    document.head.appendChild(script);
+}
+
+// 性能优化：预加载重要图片
+function preloadCriticalImages() {
+    const criticalImages = [
+        'images/tech-featured.jpg',
+        'images/tech1.jpg',
+        'images/tech2.jpg'
+    ];
+    
+    criticalImages.forEach(src => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.href = src;
+        link.as = 'image';
+        document.head.appendChild(link);
+    });
+}
+
+// 页面加载完成后初始化
+window.addEventListener('load', function() {
+    preloadCriticalImages();
+});

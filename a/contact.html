@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="内黄县果树协会 - 联系我们，提供专业果树种植技术咨询、会员服务、合作洽谈等服务">
+    <meta name="keywords" content="内黄县果树协会,联系我们,技术咨询,会员服务,合作洽谈">
+    <title>联系我们 - 内黄县果树协会</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- <link rel="preload" href="fonts/noto-sans-sc.woff2" as="font" type="font/woff2" crossorigin> -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/googlefonts/noto-cjk/NotoSansSC/NotoSansSC%5Bwght%5D.woff2"
+        as="font" type="font/woff2" crossorigin>
+    <style>
+        @font-face {
+            font-family: 'Noto Sans SC';
+            font-weight: 100 900;
+            font-style: normal;
+            font-display: swap;
+            src: url('https://cdn.jsdelivr.net/gh/googlefonts/noto-cjk/NotoSansSC/NotoSansSC%5Bwght%5D.woff2') format('woff2');
+        }
+    </style>
+    <link rel="canonical" href="https://nhxgsxh.com/a/contact/">
+    <style>
+        /* 联系我们页面专用样式 */
+        .contact-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 100px 0 40px;
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .contact-info-section {
+            padding: 3rem 0;
+            background: var(--background-light);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+
+        .contact-card p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .contact-hours {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .contact-action {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .contact-action:hover {
+            background: var(--primary-dark);
+        }
+
+        .contact-main-section {
+            padding: 3rem 0;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-form-section h2 {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-form-section>p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid var(--border-color);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+            display: block;
+        }
+
+        .submit-btn {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .contact-map-section h2 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .map-container {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .map-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .map-container:hover .map-image {
+            transform: scale(1.05);
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .map-container:hover .map-overlay {
+            opacity: 1;
+        }
+
+        .map-zoom-btn {
+            background: var(--white);
+            color: var(--primary-color);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .location-info {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .location-info h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        .info-item {
+            display: flex;
+            margin-bottom: 0.8rem;
+        }
+
+        .info-label {
+            font-weight: 600;
+            min-width: 80px;
+            color: var(--text-dark);
+        }
+
+        .info-value {
+            color: var(--text-light);
+        }
+
+        .faq-section {
+            padding: 3rem 0;
+            background: var(--background-light);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 2rem;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .faq-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .faq-item h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .faq-item p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .breadcrumb a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        /* 微信二维码弹框样式 */
+        .wechat-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            margin: 10px auto;
+            padding: 0;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 320px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: slideIn 0.3s ease-out;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .modal-body {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .qrcode-container {
+            margin: 0 auto 1.5rem;
+            padding: 1rem;
+            background: var(--white);
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .qrcode-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .qrcode-placeholder {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, #f0f0f0 25%, transparent 25%),
+                linear-gradient(-45deg, #f0f0f0 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #f0f0f0 75%),
+                linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-radius: 5px;
+        }
+
+        .modal-text {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .wechat-id {
+            background: var(--background-light);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin: 1rem 0;
+            display: inline-block;
+        }
+
+        .modal-footer {
+            padding: 1rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .save-btn {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .save-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* 动画效果 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+        }
+
+        .modal-closing {
+            animation: slideOut 0.3s ease-in forwards;
+        }
+
+        @media (max-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 480px) {
+            .modal-content {
+                width: 95%;
+                margin: 5px auto;
+            }
+
+            .qrcode-image,
+            .qrcode-placeholder {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        /* 性能优化 */
+        @media (prefers-reduced-motion: reduce) {
+
+            .wechat-modal,
+            .modal-content {
+                animation: none;
+            }
+        }
+    </style>
+
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "内黄县果树协会",
+        "description": "专业果树种植技术推广组织",
+        "url": "https://nhxgsxh.com",
+        "telephone": "+86-372-1234567",
+        "email": "nhxgsxh@163.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "农业大厦",
+            "addressLocality": "内黄县",
+            "addressRegion": "河南省",
+            "addressCountry": "CN"
+        },
+        "openingHours": "Mo-Fr 08:00-17:00",
+        "areaServed": "河南省内黄县"
+    }
+    </script>
+</head>
+
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-brand">
+                <a href="/" class="logo-link">
+                    <img data-src="/images/logo.png" src="" alt="内黄县果树协会" width="120" height="60" loading="lazy">
+                </a>
+            </div>
+
+            <!-- 移动端菜单按钮 -->
+            <button class="mobile-menu-btn" aria-label="切换菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- 主导航 -->
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="/" class="nav-link">首页</a></li>
+                <li class="nav-item"><a href="/a/about.html" class="nav-link">关于协会</a></li>
+                <li class="nav-item"><a href="/a/news.html" class="nav-link">新闻动态</a></li>
+                <li class="nav-item"><a href="/a/technology.html" class="nav-link">种植技术</a></li>
+                <li class="nav-item"><a href="/a/products.html" class="nav-link">产品展示</a></li>
+                <li class="nav-item"><a href="/a/contact.html" class="nav-link active">联系我们</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 页面标题区域 -->
+    <section class="page-header contact-header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">首页</a>
+                <span class="separator">/</span>
+                <span class="current">联系我们</span>
+            </div>
+            <h1 class="page-title">联系我们</h1>
+            <p class="page-subtitle">专业果树种植技术咨询与服务支持</p>
+        </div>
+    </section>
+
+    <!-- 联系信息区域 -->
+    <section class="contact-info-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- 联系卡片1 -->
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>电话咨询</h3>
+                    <p>13569022233</p>
+                    <span class="contact-hours">工作时间: 8:00-17:00</span>
+                    <button class="contact-action" onclick="window.location.href='tel:13569022233'">立即拨打</button>
+                </div>
+
+                <!-- 联系卡片2 -->
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>邮箱联系</h3>
+                    <p>nhxgsxh@163.com</p>
+                    <span class="contact-hours">24小时内回复</span>
+                    <button class="contact-action" onclick="window.location.href='mailto:nhxgsxh@163.com'">发送邮件</button>
+                </div>
+
+                <!-- 联系卡片3 -->
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <h3>办公地址</h3>
+                    <p>内黄县果树协会综合楼</p>
+                    <span class="contact-hours">欢迎预约来访</span>
+                    <button class="contact-action" onclick="showMap()">查看地图</button>
+                </div>
+
+                <!-- 联系卡片4 -->
+                <div class="contact-card">
+                    <div class="contact-icon">💬</div>
+                    <h3>在线客服</h3>
+                    <p>微信扫码咨询</p>
+                    <span class="contact-hours">实时在线服务</span>
+                    <button class="contact-action consult-btn" id="wechatConsultBtn">扫码咨询</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 微信二维码弹框 -->
+    <div id="wechatModal" class="wechat-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">微信扫码咨询</h3>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="qrcode-container">
+                    <!-- 实际项目中替换为真实的二维码图片 -->
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3C/svg%3E"
+                        data-src="/images/wechat-qrcode.jpg" alt="内黄县果树协会微信二维码" class="qrcode-image" loading="lazy"
+                        onerror="this.style.display='none'; document.getElementById('qrcodePlaceholder').style.display='flex';">
+                    <div id="qrcodePlaceholder" class="qrcode-placeholder" style="display: none;">
+                        微信二维码加载中...
+                    </div>
+                </div>
+                <p class="modal-text">使用微信扫一扫添加客服</p>
+                <!-- <div class="wechat-id">微信号: nhxgsxh</div> -->
+            </div>
+            <!-- <div class="modal-footer">
+                <button class="save-btn" onclick="saveQrcode()">
+                    <span>💾</span> 保存二维码
+                </button>
+            </div> -->
+        </div>
+    </div>
+    <!-- 联系表单和地图区域 -->
+    <section class="contact-main-section">
+        <div class="container">
+            <div class="contact-content">
+                <!-- 联系表单 -->
+                <div class="contact-form-section">
+                    <h2>发送消息</h2>
+                    <p>如有任何问题或合作意向，请填写下表与我们联系</p>
+
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">您的姓名 *</label>
+                                <input type="text" id="name" name="name" required>
+                                <span class="error-message" id="nameError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">联系电话 *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                                <span class="error-message" id="phoneError"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">电子邮箱 *</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-message" id="emailError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">主题 *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">请选择咨询类型</option>
+                                <option value="technology">技术咨询</option>
+                                <option value="membership">会员服务</option>
+                                <option value="cooperation">合作洽谈</option>
+                                <option value="complaint">投诉建议</option>
+                                <option value="other">其他</option>
+                            </select>
+                            <span class="error-message" id="subjectError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">详细内容 *</label>
+                            <textarea id="message" name="message" rows="5" required
+                                placeholder="请详细描述您的问题或需求..."></textarea>
+                            <span class="error-message" id="messageError"></span>
+                        </div>
+
+                        <button type="submit" class="submit-btn">发送消息</button>
+                    </form>
+                </div>
+
+                <!-- 地图和信息 -->
+                <div class="contact-map-section">
+                    <h2>我们的位置</h2>
+                    <div class="map-container">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3C/svg%3E"
+                            data-src="/images/map.jpg" alt="内黄县果树协会位置地图" loading="lazy" class="map-image">
+                        <div class="map-overlay">
+                            <button class="map-zoom-btn" onclick="openMap()">放大查看</button>
+                        </div>
+                    </div>
+
+                    <div class="location-info">
+                        <h3>内黄县果树协会</h3>
+                        <div class="info-item">
+                            <span class="info-label">地址:</span>
+                            <span class="info-value">内黄县果树协会科普示范基地</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">电话:</span>
+                            <span class="info-value">13569022233</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">邮箱:</span>
+                            <span class="info-value">nhxgsxh@163.com</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">工作时间:</span>
+                            <span class="info-value">周一至周五 8:00-17:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见问题区域 -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">常见问题</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>如何成为协会会员？</h3>
+                    <p>填写会员申请表并提交相关材料，审核通过后即可成为正式会员。</p>
+                </div>
+                <div class="faq-item">
+                    <h3>技术培训如何参加？</h3>
+                    <p>关注官网通知或联系客服报名，培训免费向会员开放。</p>
+                </div>
+                <div class="faq-item">
+                    <h3>有问题如何快速咨询？</h3>
+                    <p>可拨打客服电话或添加微信在线咨询，获取即时解答。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>内黄县果树协会</h3>
+                    <p>专业果树种植技术推广与科普示范</p>
+                    <div class="contact-info">
+                        <p>📞 13569022233</p>
+                        <p>📧 nhxgsxh@163.com</p>
+                        <p>📍 内黄县果树协会科普示范基地</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="about.html">关于协会</a></li>
+                        <li><a href="news.html">新闻动态</a></li>
+                        <li><a href="technology.html">种植技术</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>会员服务</h4>
+                    <ul>
+                        <li><a href="member.html">会员申请</a></li>
+                        <li><a href="download.html">资料下载</a></li>
+                        <li><a href="qa.html">常见问题</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 内黄县果树协会. 版权所有.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // 联系我们页面功能
+        document.addEventListener('DOMContentLoaded', function () {
+            // 移动端菜单
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function () {
+                    navMenu.classList.toggle('active');
+                    this.classList.toggle('active');
+                });
+            }
+
+            // 表单验证
+            const contactForm = document.getElementById('contactForm');
+            const nameInput = document.getElementById('name');
+            const phoneInput = document.getElementById('phone');
+            const emailInput = document.getElementById('email');
+            const subjectInput = document.getElementById('subject');
+            const messageInput = document.getElementById('message');
+
+            // 实时验证
+            nameInput.addEventListener('blur', validateName);
+            phoneInput.addEventListener('blur', validatePhone);
+            emailInput.addEventListener('blur', validateEmail);
+            subjectInput.addEventListener('change', validateSubject);
+            messageInput.addEventListener('blur', validateMessage);
+
+            // 表单提交
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                if (validateForm()) {
+                    // 模拟表单提交
+                    showMessage('消息发送成功！我们将在24小时内回复您。');
+                    contactForm.reset();
+                }
+            });
+
+            function validateName() {
+                const name = nameInput.value.trim();
+                const error = document.getElementById('nameError');
+
+                if (name.length < 2) {
+                    error.textContent = '姓名至少需要2个字符';
+                    return false;
+                } else {
+                    error.textContent = '';
+                    return true;
+                }
+            }
+
+            function validatePhone() {
+                const phone = phoneInput.value.trim();
+                const error = document.getElementById('phoneError');
+                const phoneRegex = /^1[3-9]\d{9}$/;
+
+                if (!phoneRegex.test(phone)) {
+                    error.textContent = '请输入有效的手机号码';
+                    return false;
+                } else {
+                    error.textContent = '';
+                    return true;
+                }
+            }
+
+            function validateEmail() {
+                const email = emailInput.value.trim();
+                const error = document.getElementById('emailError');
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (!emailRegex.test(email)) {
+                    error.textContent = '请输入有效的邮箱地址';
+                    return false;
+                } else {
+                    error.textContent = '';
+                    return true;
+                }
+            }
+
+            function validateSubject() {
+                const subject = subjectInput.value;
+                const error = document.getElementById('subjectError');
+
+                if (!subject) {
+                    error.textContent = '请选择咨询类型';
+                    return false;
+                } else {
+                    error.textContent = '';
+                    return true;
+                }
+            }
+
+            function validateMessage() {
+                const message = messageInput.value.trim();
+                const error = document.getElementById('messageError');
+
+                if (message.length < 10) {
+                    error.textContent = '消息内容至少需要10个字符';
+                    return false;
+                } else {
+                    error.textContent = '';
+                    return true;
+                }
+            }
+
+            function validateForm() {
+                return validateName() && validatePhone() && validateEmail() && validateSubject() && validateMessage();
+            }
+
+            // 图片懒加载
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.getAttribute('data-src');
+                        img.classList.add('loaded');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            lazyImages.forEach(img => {
+                imageObserver.observe(img);
+            });
+
+            // 显示消息
+            function showMessage(message) {
+                const messageEl = document.createElement('div');
+                messageEl.textContent = message;
+                messageEl.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: var(--primary-color);
+                    color: white;
+                    padding: 1rem 2rem;
+                    border-radius: var(--border-radius);
+                    z-index: 1000;
+                    box-shadow: var(--shadow);
+                `;
+                document.body.appendChild(messageEl);
+
+                setTimeout(() => {
+                    document.body.removeChild(messageEl);
+                }, 3000);
+            }
+        });
+
+        // 地图功能
+        function showMap() {
+            alert('正在打开地图...');
+            // 实际项目中这里可以集成百度地图或高德地图API
+        }
+
+        function openMap() {
+            window.open('https://map.baidu.com/', '_blank');
+        }
+
+        function showWechat() {
+            alert('请添加微信: nhxgsxh2005 进行咨询');
+        }
+        // 微信二维码弹框功能
+        const wechatModal = document.getElementById('wechatModal');
+        const consultBtn = document.getElementById('wechatConsultBtn');
+        const closeBtn = document.querySelector('.close-btn');
+
+        // 显示微信二维码弹框
+        function showWechatModal() {
+            wechatModal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // 禁止背景滚动
+
+            // 这里可以集成咨询统计
+            console.log('点击扫码咨询');
+            // gtag('event', 'wechat_consult_click');
+        }
+
+        // 关闭微信二维码弹框
+        function closeWechatModal() {
+            wechatModal.classList.add('modal-closing');
+            setTimeout(() => {
+                wechatModal.style.display = 'none';
+                wechatModal.classList.remove('modal-closing');
+                document.body.style.overflow = ''; // 恢复背景滚动
+            }, 300);
+        }
+
+        // 事件监听
+        if (consultBtn) {
+            consultBtn.addEventListener('click', showWechatModal);
+        }
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', closeWechatModal);
+        }
+
+        // 点击背景关闭弹框
+        wechatModal.addEventListener('click', function (event) {
+            if (event.target === wechatModal) {
+                closeWechatModal();
+            }
+        });
+
+        // ESC键关闭弹框
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && wechatModal.style.display === 'block') {
+                closeWechatModal();
+            }
+        });
+
+        // 保存二维码功能
+        window.saveQrcode = function () {
+            // 这里可以集成二维码保存功能
+            alert('右键点击二维码图片选择"另存为"即可保存');
+            // 实际项目中可以使用更复杂的下载逻辑
+        };
+    </script>
+</body>
+
+</html>
