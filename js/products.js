@@ -1,5 +1,6 @@
 // 产品展示页专用JavaScript
 document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('year').innerText=new Date().getFullYear();
     // 获取DOM元素
     const searchInput = document.getElementById('productSearch');
     const categoryFilter = document.getElementById('categoryFilter');

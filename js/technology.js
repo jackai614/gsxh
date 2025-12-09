@@ -1,5 +1,6 @@
 // 种植技术页面专用JavaScript
 document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('year').innerText=new Date().getFullYear();
     // 技术分类筛选功能
     const categoryBtns = document.querySelectorAll('.category-btn, .category-link');
     const techArticles = document.querySelectorAll('.tech-article');

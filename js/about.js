@@ -1,5 +1,6 @@
 // 关于我们页面专用JavaScript
 document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('year').innerText=new Date().getFullYear();
     // 移动端菜单切换（与主页保持一致）
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navMenu = document.querySelector('.nav-menu');

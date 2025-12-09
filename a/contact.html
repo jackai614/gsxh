@@ -591,7 +591,7 @@
                     <div class="contact-icon">📞</div>
                     <h3>电话咨询</h3>
                     <p>13569022233</p>
-                    <span class="contact-hours">工作时间: 8:00-17:00</span>
+                    <span class="contact-hours">工作时间: 09:00-18:00</span>
                     <button class="contact-action" onclick="window.location.href='tel:13569022233'">立即拨打</button>
                 </div>
 
@@ -609,7 +609,7 @@
                     <div class="contact-icon">📍</div>
                     <h3>办公地址</h3>
                     <p>内黄县果树协会综合楼</p>
-                    <span class="contact-hours">欢迎预约来访</span>
+                    <span class="contact-hours">欢迎来访</span>
                     <button class="contact-action" onclick="showMap()">查看地图</button>
                 </div>
 
@@ -618,7 +618,7 @@
                     <div class="contact-icon">💬</div>
                     <h3>在线客服</h3>
                     <p>微信扫码咨询</p>
-                    <span class="contact-hours">实时在线服务</span>
+                    <span class="contact-hours">在线服务</span>
                     <button class="contact-action consult-btn" id="wechatConsultBtn">扫码咨询</button>
                 </div>
             </div>
@@ -657,7 +657,7 @@
             <div class="contact-content">
                 <!-- 联系表单 -->
                 <div class="contact-form-section">
-                    <h2>发送消息</h2>
+                    <!-- <h2>发送消息</h2>
                     <p>如有任何问题或合作意向，请填写下表与我们联系</p>
 
                     <form class="contact-form" id="contactForm">
@@ -701,7 +701,7 @@
                         </div>
 
                         <button type="submit" class="submit-btn">发送消息</button>
-                    </form>
+                    </form> -->
                 </div>
 
                 <!-- 地图和信息 -->
@@ -723,7 +723,7 @@
                         </div>
                         <div class="info-item">
                             <span class="info-label">电话:</span>
-                            <span class="info-value">13569022233</span>
+                            <span class="info-value"><a href="tel:13569022233">13569022233</a></span>
                         </div>
                         <div class="info-item">
                             <span class="info-label">邮箱:</span>
@@ -731,7 +731,7 @@
                         </div>
                         <div class="info-item">
                             <span class="info-label">工作时间:</span>
-                            <span class="info-value">周一至周五 8:00-17:00</span>
+                            <span class="info-value">周一至周日 9:00-18:00</span>
                         </div>
                     </div>
                 </div>
@@ -740,7 +740,7 @@
     </section>
 
     <!-- 常见问题区域 -->
-    <section class="faq-section">
+    <!-- <section class="faq-section">
         <div class="container">
             <h2 class="section-title">常见问题</h2>
             <div class="faq-grid">
@@ -758,7 +758,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- 页脚 -->
     <footer class="footer">
@@ -768,7 +768,7 @@
                     <h3>内黄县果树协会</h3>
                     <p>专业果树种植技术推广与科普示范</p>
                     <div class="contact-info">
-                        <p>📞 13569022233</p>
+                        <p>📞 <a href="tel:13569022233">13569022233</a></p>
                         <p>📧 nhxgsxh@163.com</p>
                         <p>📍 内黄县果树协会科普示范基地</p>
                     </div>
@@ -790,13 +790,13 @@
                         <li><a href="member.html">会员申请</a></li>
                         <li><a href="download.html">资料下载</a></li>
                         <li><a href="qa.html">常见问题</a></li>
-                        <li><a href="contact.html">联系我们</a></li>
+                        <li><a href="/a/contact.html">联系我们</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2024 内黄县果树协会. 版权所有.</p>
+                <p>&copy; 2005-<span id="year"></span> 内黄县果树协会. 版权所有.<a target="_blank" style="color: #ccc;" href="https://beian.miit.gov.cn/">豫ICP备2024098861号-1</a></p>
             </div>
         </div>
     </footer>
@@ -805,6 +805,7 @@
     <script>
         // 联系我们页面功能
         document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('year').innerText=new Date().getFullYear();
             // 移动端菜单
             const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
             const navMenu = document.querySelector('.nav-menu');
@@ -817,101 +818,101 @@
             }
 
             // 表单验证
-            const contactForm = document.getElementById('contactForm');
-            const nameInput = document.getElementById('name');
-            const phoneInput = document.getElementById('phone');
-            const emailInput = document.getElementById('email');
-            const subjectInput = document.getElementById('subject');
-            const messageInput = document.getElementById('message');
+            // const contactForm = document.getElementById('contactForm');
+            // const nameInput = document.getElementById('name');
+            // const phoneInput = document.getElementById('phone');
+            // const emailInput = document.getElementById('email');
+            // const subjectInput = document.getElementById('subject');
+            // const messageInput = document.getElementById('message');
 
             // 实时验证
-            nameInput.addEventListener('blur', validateName);
-            phoneInput.addEventListener('blur', validatePhone);
-            emailInput.addEventListener('blur', validateEmail);
-            subjectInput.addEventListener('change', validateSubject);
-            messageInput.addEventListener('blur', validateMessage);
+            // nameInput.addEventListener('blur', validateName);
+            // phoneInput.addEventListener('blur', validatePhone);
+            // emailInput.addEventListener('blur', validateEmail);
+            // subjectInput.addEventListener('change', validateSubject);
+            // messageInput.addEventListener('blur', validateMessage);
 
             // 表单提交
-            contactForm.addEventListener('submit', function (e) {
-                e.preventDefault();
+            // contactForm.addEventListener('submit', function (e) {
+            //     e.preventDefault();
 
-                if (validateForm()) {
-                    // 模拟表单提交
-                    showMessage('消息发送成功！我们将在24小时内回复您。');
-                    contactForm.reset();
-                }
-            });
+            //     if (validateForm()) {
+            //         // 模拟表单提交
+            //         showMessage('消息发送成功！我们将在24小时内回复您。');
+            //         contactForm.reset();
+            //     }
+            // });
 
-            function validateName() {
-                const name = nameInput.value.trim();
-                const error = document.getElementById('nameError');
+            // function validateName() {
+            //     const name = nameInput.value.trim();
+            //     const error = document.getElementById('nameError');
 
-                if (name.length < 2) {
-                    error.textContent = '姓名至少需要2个字符';
-                    return false;
-                } else {
-                    error.textContent = '';
-                    return true;
-                }
-            }
+            //     if (name.length < 2) {
+            //         error.textContent = '姓名至少需要2个字符';
+            //         return false;
+            //     } else {
+            //         error.textContent = '';
+            //         return true;
+            //     }
+            // }
 
-            function validatePhone() {
-                const phone = phoneInput.value.trim();
-                const error = document.getElementById('phoneError');
-                const phoneRegex = /^1[3-9]\d{9}$/;
+            // function validatePhone() {
+            //     const phone = phoneInput.value.trim();
+            //     const error = document.getElementById('phoneError');
+            //     const phoneRegex = /^1[3-9]\d{9}$/;
 
-                if (!phoneRegex.test(phone)) {
-                    error.textContent = '请输入有效的手机号码';
-                    return false;
-                } else {
-                    error.textContent = '';
-                    return true;
-                }
-            }
+            //     if (!phoneRegex.test(phone)) {
+            //         error.textContent = '请输入有效的手机号码';
+            //         return false;
+            //     } else {
+            //         error.textContent = '';
+            //         return true;
+            //     }
+            // }
 
-            function validateEmail() {
-                const email = emailInput.value.trim();
-                const error = document.getElementById('emailError');
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            // function validateEmail() {
+            //     const email = emailInput.value.trim();
+            //     const error = document.getElementById('emailError');
+            //     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-                if (!emailRegex.test(email)) {
-                    error.textContent = '请输入有效的邮箱地址';
-                    return false;
-                } else {
-                    error.textContent = '';
-                    return true;
-                }
-            }
+            //     if (!emailRegex.test(email)) {
+            //         error.textContent = '请输入有效的邮箱地址';
+            //         return false;
+            //     } else {
+            //         error.textContent = '';
+            //         return true;
+            //     }
+            // }
 
-            function validateSubject() {
-                const subject = subjectInput.value;
-                const error = document.getElementById('subjectError');
+            // function validateSubject() {
+            //     const subject = subjectInput.value;
+            //     const error = document.getElementById('subjectError');
 
-                if (!subject) {
-                    error.textContent = '请选择咨询类型';
-                    return false;
-                } else {
-                    error.textContent = '';
-                    return true;
-                }
-            }
+            //     if (!subject) {
+            //         error.textContent = '请选择咨询类型';
+            //         return false;
+            //     } else {
+            //         error.textContent = '';
+            //         return true;
+            //     }
+            // }
 
-            function validateMessage() {
-                const message = messageInput.value.trim();
-                const error = document.getElementById('messageError');
+            // function validateMessage() {
+            //     const message = messageInput.value.trim();
+            //     const error = document.getElementById('messageError');
 
-                if (message.length < 10) {
-                    error.textContent = '消息内容至少需要10个字符';
-                    return false;
-                } else {
-                    error.textContent = '';
-                    return true;
-                }
-            }
+            //     if (message.length < 10) {
+            //         error.textContent = '消息内容至少需要10个字符';
+            //         return false;
+            //     } else {
+            //         error.textContent = '';
+            //         return true;
+            //     }
+            // }
 
-            function validateForm() {
-                return validateName() && validatePhone() && validateEmail() && validateSubject() && validateMessage();
-            }
+            // function validateForm() {
+            //     return validateName() && validatePhone() && validateEmail() && validateSubject() && validateMessage();
+            // }
 
             // 图片懒加载
             const lazyImages = document.querySelectorAll('img[loading="lazy"]');
@@ -960,7 +961,7 @@
         }
 
         function openMap() {
-            window.open('https://map.baidu.com/', '_blank');
+            window.open('https://map.baidu.com/poi/%E5%86%85%E9%BB%84%E5%8E%BF%E6%9E%9C%E6%A0%91%E5%8D%8F%E4%BC%9A/@12791551.577591216,4276596.687231463,16.08z?uid=0018b7be56dade4dc356acde&info_merge=1&isBizPoi=false&ugc_type=3&ugc_ver=1&device_ratio=2&compat=1&en_uid=0018b7be56dade4dc356acde&pcevaname=pc4.1&querytype=detailConInfo&da_src=shareurl', '_blank');
         }
 
         function showWechat() {
