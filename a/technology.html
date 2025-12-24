@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,7 @@
     <link rel="stylesheet" href="/css/technology.css">
     <link rel="preload" href="fonts/noto-sans-sc.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="canonical" href="http://www.nhxgsxh.com/a/technology/">
-    
+
     <!-- 结构化数据 -->
     <script type="application/ld+json">
     {
@@ -37,6 +38,7 @@
     }
     </script>
 </head>
+
 <body>
     <!-- 顶部导航栏 -->
     <header class="header">
@@ -46,14 +48,14 @@
                     <img src="/images/logo.png" alt="内黄县果树协会" width="120" height="60" loading="lazy">
                 </a>
             </div>
-            
+
             <!-- 移动端菜单按钮 -->
             <button class="mobile-menu-btn" aria-label="切换菜单">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            
+
             <!-- 主导航 -->
             <ul class="nav-menu">
                 <li class="nav-item"><a href="/" class="nav-link">首页</a></li>
@@ -76,7 +78,7 @@
             </div>
             <h1 class="page-title">果树种植技术</h1>
             <p class="page-subtitle">专业果树种植技术指导，助力果农增产增收</p>
-            
+
             <!-- 技术分类导航 -->
             <div class="tech-categories">
                 <button class="category-btn active" data-category="all">全部文章</button>
@@ -95,170 +97,36 @@
                 <input type="text" id="techSearch" placeholder="请输入搜索关键词..." class="search-input">
                 <button class="search-btn" aria-label="搜索">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                        <path
+                            d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
                     </svg>
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- 热门技术推荐 -->
-    <!-- <section class="featured-tech-section">
-        <div class="container">
-            <h2 class="section-title">热门技术推荐</h2>
-            <div class="featured-grid">
-                <article class="featured-card featured-main">
-                    <img src="/images/tech-featured.jpg" alt="春季果树修剪技术" loading="lazy" width="600" height="300">
-                    <div class="featured-badge">热门</div>
-                    <div class="featured-content">
-                        <span class="tech-category">修剪技术</span>
-                        <h3>春季果树修剪技术要点与操作指南</h3>
-                        <p class="tech-meta">发布于：2024-03-20 | 阅读量：1,258</p>
-                        <p>春季是果树修剪的关键时期，正确的修剪方法能够促进果树生长，提高产量。本文详细介绍了不同树种的修剪技巧和注意事项...</p>
-                        <a href="/a/tech-detail.html" class="read-more">阅读全文</a>
-                    </div>
-                </article>
-                
-                <div class="featured-sidebar">
-                    <article class="sidebar-card">
-                        <img src="/images/tech-side1.jpg" alt="病虫害防治" loading="lazy" width="200" height="120">
-                        <div class="sidebar-content">
-                            <h4>常见果树病虫害识别与防治</h4>
-                            <span class="views">📊 892 阅读</span>
-                        </div>
-                    </article>
-                    
-                    <article class="sidebar-card">
-                        <img src="/images/tech-side2.jpg" alt="施肥技术" loading="lazy" width="200" height="120">
-                        <div class="sidebar-content">
-                            <h4>果树科学施肥时间表</h4>
-                            <span class="views">📊 765 阅读</span>
-                        </div>
-                    </article>
-                    
-                    <article class="sidebar-card">
-                        <img src="/images/tech-side3.jpg" alt="灌溉技术" loading="lazy" width="200" height="120">
-                        <div class="sidebar-content">
-                            <h4>节水灌溉技术应用</h4>
-                            <span class="views">📊 643 阅读</span>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
     <!-- 技术文章列表 -->
     <section class="tech-list-section">
         <div class="container">
-            <!-- <div class="tech-content"> -->
-                <div class="tech-main">
-                    <h2 class="section-title">管理技术文章</h2>
-                    
-                    <div class="tech-filters">
-                        <div class="filter-group">
-                            <label for="sortSelect">排序方式：</label>
-                            <select id="sortSelect" class="filter-select">
-                                <option value="newest">最新发布</option>
-                                <!-- <option value="popular">最多阅读</option>
-                                <option value="hot">热度排序</option> -->
-                            </select>
-                        </div>
-                        <div class="result-count">共找到 <span id="totalResults">735</span> 篇技术文章</div>
-                    </div>
+            <div class="tech-main">
+                <h2 class="section-title">管理技术文章</h2>
 
-                    <div class="tech-articles" id="techArticles">
-                        <!-- 技术文章1 -->
-                        
+                <div class="tech-filters">
+                    <div class="filter-group">
+                        <label for="sortSelect">排序方式：</label>
+                        <select id="sortSelect" class="filter-select">
+                            <option value="newest">最新发布</option>
+                        </select>
                     </div>
-
-                    <!-- 分页导航 -->
-                    <!-- <div class="pagination">
-                        <button class="page-btn disabled">上一页</button>
-                        <button class="page-btn active">1</button>
-                        <button class="page-btn">2</button>
-                        <button class="page-btn">3</button>
-                        <button class="page-btn">4</button>
-                        <span class="page-ellipsis">...</span>
-                        <button class="page-btn">下一页</button>
-                    </div> -->
+                    <div class="result-count">共找到 <span id="totalResults">735</span> 篇技术文章</div>
                 </div>
 
-                <!-- 侧边栏 -->
-                <!-- <aside class="tech-sidebar"> -->
-                    <!-- 技术分类 -->
-                    <!-- <div class="sidebar-widget">
-                        <h3>技术分类</h3>
-                        <ul class="category-list">
-                            <li><a href="#" class="category-link active" data-category="all">全部技术 <span class="count">24</span></a></li>
-                            <li><a href="#" class="category-link" data-category="irrigation">栽培技术 <span class="count">3</span></a></li>
-                            <li><a href="#" class="category-link" data-category="pruning">修剪技术 <span class="count">8</span></a></li>
-                            <li><a href="#" class="category-link" data-category="pest">病虫害防治 <span class="count">6</span></a></li>
-                            <li><a href="#" class="category-link" data-category="fertilizer">水肥管理 <span class="count">5</span></a></li>
-                        </ul>
-                    </div> -->
+                <div class="tech-articles" id="techArticles">
+                    <!-- 技术文章1 -->
 
-                    <!-- 热门文章 -->
-                    <!-- <div class="sidebar-widget">
-                        <h3>热门文章</h3>
-                        <div class="popular-articles">
-                            <article class="popular-article">
-                                <span class="rank">1</span>
-                                <div class="popular-content">
-                                    <h4><a href="/a/tech-detail.html">春季果树修剪技术要点</a></h4>
-                                    <span class="views">1,258 阅读</span>
-                                </div>
-                            </article>
-                            <article class="popular-article">
-                                <span class="rank">2</span>
-                                <div class="popular-content">
-                                    <h4><a href="/a/tech-detail.html">病虫害识别与防治</a></h4>
-                                    <span class="views">892 阅读</span>
-                                </div>
-                            </article>
-                            <article class="popular-article">
-                                <span class="rank">3</span>
-                                <div class="popular-content">
-                                    <h4><a href="/a/tech-detail.html">科学施肥时间表</a></h4>
-                                    <span class="views">765 阅读</span>
-                                </div>
-                            </article>
-                        </div>
-                    </div> -->
-
-                    <!-- 技术资料下载 -->
-                    <!-- <div class="sidebar-widget download-widget">
-                        <h3>技术资料下载</h3>
-                        <div class="download-list">
-                            <a href="downloads/果树修剪手册.pdf" class="download-item" download>
-                                <span class="file-icon">📄</span>
-                                <span class="file-name">果树修剪技术手册</span>
-                                <span class="file-size">PDF 2.3MB</span>
-                            </a>
-                            <a href="downloads/病虫害防治指南.pdf" class="download-item" download>
-                                <span class="file-icon">📄</span>
-                                <span class="file-name">病虫害防治指南</span>
-                                <span class="file-size">PDF 1.8MB</span>
-                            </a>
-                            <a href="downloads/施肥管理规范.pdf" class="download-item" download>
-                                <span class="file-icon">📄</span>
-                                <span class="file-name">施肥管理规范</span>
-                                <span class="file-size">PDF 1.5MB</span>
-                            </a>
-                        </div>
-                    </div> -->
-
-                    <!-- 专家咨询 -->
-                    <!-- <div class="sidebar-widget expert-widget">
-                        <h3>专家在线咨询</h3>
-                        <div class="expert-content">
-                            <p>遇到种植技术问题？我们的专家团队为您提供专业解答</p>
-                            <a href="/a/contact.html" class="consult-btn">立即咨询</a>
-                        </div>
-                    </div> -->
-                <!-- </aside> -->
+                </div>
             </div>
-        <!-- </div> -->
+        </div>
     </section>
 
     <!-- 技术培训通知 -->
@@ -277,7 +145,22 @@
             </div>
         </div>
     </section>
-
+    <!-- 悬浮加载动画 -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loader">
+            <div class="outer-ring"></div>
+            <div class="inner-ring"></div>
+            <div class="center-dot"></div>
+        </div>
+        <div class="loading-text" id="loadingText">
+            <span style="--i:1">加</span>
+            <span style="--i:2">载</span>
+            <span style="--i:3">中</span>
+            <span style="--i:4">.</span>
+            <span style="--i:5">.</span>
+            <span style="--i:6">.</span>
+        </div>
+    </div>
     <!-- 页脚 -->
     <footer class="footer">
         <div class="container">
@@ -291,7 +174,7 @@
                         <p>📍 河南省内黄县果树协会示范研究基地</p>
                     </div>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>快速链接</h4>
                     <ul>
@@ -301,7 +184,7 @@
                         <li><a href="/a/technology.html">种植技术</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>会员服务</h4>
                     <ul>
@@ -312,15 +195,25 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
-                <p>&copy; 2005-<span id="year"></span> 内黄县果树协会. 版权所有.<a target="_blank" style="color: #ccc;" href="https://beian.miit.gov.cn/">豫ICP备2024098861号-1</a></p>
+                <p>&copy; 2005-<span id="year"></span> 内黄县果树协会. 版权所有.<a target="_blank" style="color: #ccc;"
+                        href="https://beian.miit.gov.cn/">豫ICP备2024098861号-1</a></p>
             </div>
         </div>
     </footer>
-
+    <script>
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        // 加载文字动画 - 每个字单独设置动画延迟
+        const loadingText = document.getElementById('loadingText');
+        const textSpans = loadingText.querySelectorAll('span');
+        let isUpdateData = 1;
+        textSpans.forEach((span, index) => {
+            span.style.setProperty('--i', index + 1);
+        });
+    </script>
     <script src="/js/main.js"></script>
-    <script src="/js/study.js"></script>
     <script src="/js/technology.js"></script>
 </body>
+
 </html>

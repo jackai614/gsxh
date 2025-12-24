@@ -781,3 +781,138 @@ mark {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* loading样式 */
+/* 加载动画容器 - 固定全屏 */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(25, 25, 35, 0.92);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+/* 加载动画主体 */
+.loader {
+    width: 120px;
+    height: 120px;
+    position: relative;
+}
+
+/* 外圈旋转圆环 */
+.outer-ring {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top: 4px solid #3498db;
+    border-right: 4px solid #2ecc71;
+    animation: spin 1.5s linear infinite;
+}
+
+/* 内圈旋转圆环 */
+.inner-ring {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top: 3px solid #e74c3c;
+    border-right: 3px solid #f39c12;
+    animation: spinReverse 1.2s linear infinite;
+}
+
+/* 中心圆点 */
+.center-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, #9b59b6, #1abc9c);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(155, 89, 182, 0.7);
+}
+
+/* 加载文字 */
+.loading-text {
+    color: white;
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.loading-text span {
+    display: inline-block;
+    animation: pulse 1.5s infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+
+/* 动画定义 */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinReverse {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .loader {
+        width: 90px;
+        height: 90px;
+    }
+
+    .outer-ring {
+        width: 90px;
+        height: 90px;
+    }
+
+    .inner-ring {
+        width: 60px;
+        height: 60px;
+        top: 15px;
+        left: 15px;
+    }
+
+    .loading-text {
+        font-size: 1rem;
+    }
+}
