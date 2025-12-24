@@ -1,22 +1,77 @@
 // 种植技术页面专用JavaScript
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('year').innerText=new Date().getFullYear();
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('year').innerText = new Date().getFullYear();
+    //截取学习文章中的图片路径方法
+    function extractImageSrcs(htmlString) {
+        const imgSrcRegex = /<img[^>]*src=(['"])?([^'"]+)\1[^>]*>/g;
+        const srcs = [];
+
+        let match;
+        while ((match = imgSrcRegex.exec(htmlString))) {
+            srcs.push(match[2]);
+        }
+
+        return srcs;
+    }
+    function dateStr(date) {
+        let newDate = new Date(date);
+        let month = newDate.getMonth() + 1 < 10 ? '0' + Number(newDate.getMonth() + 1) : newDate.getMonth() + 1;
+        let day = newDate.getDate() < 10 ? '0' + Number(newDate.getDate()) : newDate.getDate();
+        return newDate.getFullYear() + "-" + month + "-" + day;
+    }
+    var categoryObj={"栽培技术":"irrigation","修剪整形":"pruning","病虫害防治":"pest","水肥管理":"fertilizer"};
+    var str = '';
+    study.forEach((item) => {
+        let keywords = item.keyword || '';
+        let imgsrc = '';
+        let tagStr=''
+        if(keywords&&keywords.length){
+            keywords.split(',').forEach((tagItem)=>{
+                tagStr=tagStr+`<span class="tag">#${tagItem}</span>`
+            })
+        }
+        if (extractImageSrcs(item.content) && extractImageSrcs(item.content).length) {
+            imgsrc = extractImageSrcs(item.content)[0].split('/');
+            imgsrc = imgsrc[imgsrc.length - 1];
+            imgsrc = `/images/study_images/${imgsrc}`
+        }
+        str = str + `
+            <article class="tech-article" data-category="${keywords.includes('虫') || keywords.includes('防治') ? categoryObj['病虫害防治'] : keywords.includes('水肥') ? categoryObj['水肥管理'] : keywords.includes('修剪') ? categoryObj['修剪整形'] : keywords.includes('栽培') || keywords.includes('管理') ? categoryObj['栽培技术'] : 'all'}" data-popularity="1258">
+                <div class="article-image">
+                    <img data-src="${imgsrc}" alt="${item.title}"
+                onerror="this.src = '${extractImageSrcs(item.content).length ? imgsrc : 'https://img0.baidu.com/it/u=637550358,3618406664&fm=253&fmt=auto&app=120&f=JPEG'}'" loading="lazy" width="300" height="200">
+                </div>
+                <div class="article-content">
+                    <h3><a href="/a/tech-detail.html?id=${item.id}">${item.title}</a></h3>
+                    <p class="article-meta">
+                        <span class="date">📅 ${dateStr(item.updateTime)}</span>
+                    </p>
+                    <p class="article-excerpt"> ${item.description.substr(0, 95)}...</p>
+                    <div class="article-tags">
+                        ${tagStr}
+                    </div>
+                </div>
+            </article>
+        `
+    })
+    document.getElementById('techArticles').innerHTML = str;
+
     // 技术分类筛选功能
     const categoryBtns = document.querySelectorAll('.category-btn, .category-link');
     const techArticles = document.querySelectorAll('.tech-article');
     const totalResults = document.getElementById('totalResults');
-    
+
     // 分类筛选功能
     categoryBtns.forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        btn.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             const category = this.getAttribute('data-category');
-            
+
             // 更新活动状态
             categoryBtns.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
-            
+
             // 筛选文章
             let visibleCount = 0;
             techArticles.forEach(article => {
@@ -27,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     article.style.display = 'none';
                 }
             });
-            
+
             // 更新结果计数
             if (totalResults) {
                 totalResults.textContent = visibleCount;
@@ -38,10 +93,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // 搜索功能
     const searchInput = document.getElementById('techSearch');
     const searchBtn = document.querySelector('.search-btn');
-    
+
     function performSearch() {
         const searchTerm = searchInput.value.toLowerCase().trim();
-        
+
         if (searchTerm === '') {
             // 显示所有文章
             techArticles.forEach(article => {
@@ -52,29 +107,29 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             return;
         }
-        
+
         let foundCount = 0;
         techArticles.forEach(article => {
             const title = article.querySelector('h3 a').textContent.toLowerCase();
             const excerpt = article.querySelector('.article-excerpt').textContent.toLowerCase();
             const tags = article.querySelector('.article-tags').textContent.toLowerCase();
-            
+
             if (title.includes(searchTerm) || excerpt.includes(searchTerm) || tags.includes(searchTerm)) {
                 article.style.display = 'flex';
                 foundCount++;
-                
+
                 // 高亮搜索关键词
                 highlightSearchTerm(article, searchTerm);
             } else {
                 article.style.display = 'none';
             }
         });
-        
+
         if (totalResults) {
             totalResults.textContent = foundCount;
         }
     }
-    
+
     function highlightSearchTerm(element, term) {
         const textElements = element.querySelectorAll('h3 a, .article-excerpt, .article-tags');
         textElements.forEach(textElement => {
@@ -84,21 +139,21 @@ document.addEventListener('DOMContentLoaded', function() {
             textElement.innerHTML = highlightedHTML;
         });
     }
-    
+
     // 搜索事件监听
     if (searchBtn) {
         searchBtn.addEventListener('click', performSearch);
     }
-    
+
     if (searchInput) {
-        searchInput.addEventListener('keypress', function(e) {
+        searchInput.addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
                 performSearch();
             }
         });
-        
+
         // 防抖搜索
-        searchInput.addEventListener('input', debounce(function(e) {
+        searchInput.addEventListener('input', debounce(function (e) {
             if (e.target.value.trim() === '') {
                 performSearch();
             }
@@ -108,28 +163,28 @@ document.addEventListener('DOMContentLoaded', function() {
     // 排序功能
     const sortSelect = document.getElementById('sortSelect');
     if (sortSelect) {
-        sortSelect.addEventListener('change', function() {
+        sortSelect.addEventListener('change', function () {
             const sortBy = this.value;
             sortArticles(sortBy);
         });
     }
-    
+
     function sortArticles(sortBy) {
         const articlesContainer = document.getElementById('techArticles');
         const articlesArray = Array.from(techArticles);
-        
+
         articlesArray.sort((a, b) => {
             switch (sortBy) {
                 case 'newest':
                     const dateA = new Date(a.querySelector('.date').textContent.replace('📅 ', ''));
                     const dateB = new Date(b.querySelector('.date').textContent.replace('📅 ', ''));
                     return dateB - dateA;
-                    
+
                 case 'popular':
                     const popularityA = parseInt(a.getAttribute('data-popularity'));
                     const popularityB = parseInt(b.getAttribute('data-popularity'));
                     return popularityB - popularityA;
-                    
+
                 case 'hot':
                     // 综合排序（阅读量 + 时效性）
                     const popA = parseInt(a.getAttribute('data-popularity'));
@@ -140,12 +195,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     const hotScoreA = popA / Math.max(1, timeDiff);
                     const hotScoreB = popB / Math.max(1, timeDiff);
                     return hotScoreB - hotScoreA;
-                    
+
                 default:
                     return 0;
             }
         });
-        
+
         // 重新排列文章
         articlesArray.forEach(article => {
             articlesContainer.appendChild(article);
@@ -155,13 +210,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // 分页功能
     const pageBtns = document.querySelectorAll('.page-btn');
     pageBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
             if (this.classList.contains('disabled')) return;
-            
+
             // 更新活动状态
             pageBtns.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
-            
+
             // 这里可以添加AJAX加载更多文章的功能
             // loadMoreArticles(currentPage);
         });
@@ -170,12 +225,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // 资料下载跟踪
     const downloadLinks = document.querySelectorAll('.download-item');
     downloadLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             const fileName = this.querySelector('.file-name').textContent;
             trackDownload(fileName);
         });
     });
-    
+
     function trackDownload(fileName) {
         // 这里可以集成下载统计
         console.log('文件下载:', fileName);
@@ -225,11 +280,11 @@ document.addEventListener('DOMContentLoaded', function() {
     function trackTechnologyPageView() {
         const pageTitle = '种植技术页面';
         const pageUrl = window.location.href;
-        
+
         console.log('技术页面访问:', pageTitle, pageUrl);
         // 这里可以集成统计代码
         // gtag('config', 'GA_MEASUREMENT_ID', { page_title: pageTitle, page_location: pageUrl });
-        
+
         // 模拟增加阅读量
         setTimeout(simulatePageView, 1000);
     }
@@ -249,7 +304,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 初始化页面功能
     trackTechnologyPageView();
-    
+
     // 设置结构化数据
     setTechnologyStructuredData();
 });
@@ -275,7 +330,7 @@ function setTechnologyStructuredData() {
                     "datePublished": article.querySelector('.date').textContent.replace('📅 ', ''),
                     "author": {
                         "@type": "Person",
-                        "name": article.querySelector('.author').textContent.replace('👤 ', '')
+                        "name": '果树协会'
                     }
                 }
             }))
@@ -292,10 +347,8 @@ function setTechnologyStructuredData() {
 function preloadCriticalImages() {
     const criticalImages = [
         'images/tech-featured.jpg',
-        'images/tech1.jpg',
-        'images/tech2.jpg'
     ];
-    
+
     criticalImages.forEach(src => {
         const link = document.createElement('link');
         link.rel = 'preload';
@@ -306,6 +359,6 @@ function preloadCriticalImages() {
 }
 
 // 页面加载完成后初始化
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     preloadCriticalImages();
 });

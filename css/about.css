@@ -54,7 +54,7 @@
 
 /* 协会简介 */
 .intro-section {
-    padding: 5rem 0;
+    padding: 2rem 0;
     background: var(--background-light);
 }
 
@@ -132,7 +132,7 @@
 
 /* 发展历程 */
 .timeline-section {
-    padding: 5rem 0;
+    padding: 2rem 0;
     background: var(--white);
 }
 
@@ -223,7 +223,7 @@
 
 /* 组织架构 */
 .structure-section {
-    padding: 5rem 0;
+    padding: 2rem 0;
     background: var(--background-light);
 }
 
@@ -265,7 +265,7 @@
 
 /* 协会荣誉 */
 .honors-section {
-    padding: 5rem 0;
+    padding: 2rem 0;
     background: var(--white);
 }
 
@@ -277,23 +277,22 @@
 
 .honor-card {
     background: var(--white);
-    padding: 2rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     text-align: center;
     transition: transform 0.3s;
     position: relative;
     overflow: hidden;
+    border: 4px solid;
+    animation: aniBorder 0.8s linear infinite alternate;
 }
-
-.honor-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+@keyframes aniBorder{
+    from{border-color: rgba(255, 0, 0, 0.4);}
+    to{border-color: red;}
+}
+.honors{
     width: 100%;
-    height: 4px;
-    background: var(--primary-color);
+    height: 100%;
 }
 
 .honor-card:hover {
@@ -329,7 +328,7 @@
 
 /* 会员服务 */
 .services-section {
-    padding: 5rem 0;
+    padding: 2rem 0;
     background: var(--background-light);
 }
 
