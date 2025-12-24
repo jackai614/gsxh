@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="renderer" content="webkit" />
+    <title>404</title>
+    <style>
+      html,body{
+        padding: 0;
+        margin: 0;
+      }
+      .page{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      .not-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+      }
+      .not-img{
+        width: 350px;
+        height: 350px;
+        display: block;
+      }
+      .not-tile{
+        font-size: 26px;
+        font-family: Helvetica;
+        color: #a1a1a1;
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="page"
+    >
+    <div class="not-content">
+      <img
+      src="https://static.zpimg.cn/public/fe_user_h5/images/404@2x.png"
+      class="not-img"
+    ></img>
+    <div
+      class="not-tile"
+    >页面不存在</div>
+    </div>
+  
+  </div>
+  </body>
+</html>
+

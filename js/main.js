@@ -278,7 +278,12 @@ document.addEventListener('DOMContentLoaded', function() {
     trackPageView();
     document.getElementById('year').innerText=new Date().getFullYear();
 });
-
+function bannerLink(url){
+    window.location.href=url;
+}
+function linkToTec(id){
+    window.location.href=`/a/tech-detail.html?id=${id}`;
+}
 // 工具函数
 const Utils = {
     // 防抖函数

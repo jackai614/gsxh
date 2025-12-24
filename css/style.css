@@ -38,7 +38,7 @@ body {
 
 /* 头部导航 */
 .header {
-    background: var(--white);
+    background: linear-gradient(45deg, #0dbd5d, transparent)!important;
     box-shadow: var(--shadow);
     position: fixed;
     width: 100%;
@@ -109,7 +109,7 @@ body {
 
 /* 轮播图样式 */
 .slider-section {
-    margin-top: 80px;
+    margin-top: 99px;
     position: relative;
     overflow: hidden;
 }
@@ -290,6 +290,7 @@ body {
 .about-text p {
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
+    text-indent: 2.2rem;
 }
 
 .read-more {
@@ -821,16 +822,29 @@ body {
     }
     
     .slider-container {
-        height: 300px;
+        height: 132px;
+    }
+    .slide-btn{
+        padding: 0.1rem;
+    }
+    .slider-section{
+        margin-top: 100px;
     }
     
     .slide-title {
         font-size: 1.5rem;
+        margin-bottom: 0.1rem;
+        display: none;
     }
-    
+    .slide-desc{
+        font-size: 0.8rem;
+    }
     .slide-content {
         left: 1rem;
         bottom: 1rem;
+    }
+    .about-section{
+        padding: 1rem 0;
     }
     
     .stat-number {
