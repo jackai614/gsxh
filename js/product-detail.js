@@ -1,6 +1,6 @@
 // 产品详情页专用JavaScript
 document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('year').innerText=new Date().getFullYear();
+    document.getElementById('year').innerText = new Date().getFullYear();
     // 移动端菜单切换
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navMenu = document.querySelector('.nav-menu');
@@ -305,9 +305,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         getProductInfo() {
             return {
-                id: document.querySelector('.product-sku').textContent.replace('产品编号: ', ''),
                 name: document.querySelector('.product-title').textContent,
-                price: parseFloat(document.querySelector('.current-price').textContent.replace('¥', '')),
                 image: document.getElementById('mainProductImage').src
             };
         }
@@ -610,10 +608,8 @@ document.addEventListener('DOMContentLoaded', function () {
             "name": document.querySelector('.product-title').textContent,
             "description": document.querySelector('.product-description p').textContent,
             "image": document.getElementById('mainProductImage').src,
-            "sku": document.querySelector('.product-sku').textContent.replace('产品编号: ', ''),
             "offers": {
                 "@type": "Offer",
-                "price": parseFloat(document.querySelector('.current-price').textContent.replace('¥', '')),
                 "priceCurrency": "CNY",
                 "availability": "https://schema.org/InStock",
                 "seller": {
