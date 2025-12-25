@@ -44,14 +44,23 @@
             padding: 20px;
             box-sizing: border-box;
         }
-
+        #article{
+            max-width: 1200px;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 1rem 20px;
+            margin: 0 auto;
+        }
+        #article h2{
+            padding: 1rem 0;
+        }
         .article-content img {
             position: relative;
             top: -45px;
         }
 
-        .article-content p {
-            line-height: 30px;
+        #article p {
+            line-height: 32px;
             position: relative;
         }
 
@@ -59,13 +68,148 @@
             text-align: center;
         }
 
-        .article-content p.ql-align-center,
-        .article-content p[style="text-align:center;"],
-        .article-content p[align="center"] {
+        #article p.ql-align-center,
+        #article p[style="text-align:center;"],
+        #article p[align="center"] {
             height: 300px;
             overflow: hidden;
             margin: 6px auto;
             text-align: center;
+        }
+
+        /* loading样式 */
+        /* 加载动画容器 - 固定全屏 */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(25, 25, 35, 0.92);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        /* 加载动画主体 */
+        .loader {
+            width: 120px;
+            height: 120px;
+            position: relative;
+        }
+
+        /* 外圈旋转圆环 */
+        .outer-ring {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid transparent;
+            border-top: 4px solid #3498db;
+            border-right: 4px solid #2ecc71;
+            animation: spin 1.5s linear infinite;
+        }
+
+        /* 内圈旋转圆环 */
+        .inner-ring {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            border-top: 3px solid #e74c3c;
+            border-right: 3px solid #f39c12;
+            animation: spinReverse 1.2s linear infinite;
+        }
+
+        /* 中心圆点 */
+        .center-dot {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #9b59b6, #1abc9c);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(155, 89, 182, 0.7);
+        }
+
+        /* 加载文字 */
+        .loading-text {
+            color: white;
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .loading-text span {
+            display: inline-block;
+            animation: pulse 1.5s infinite;
+            animation-delay: calc(0.1s * var(--i));
+        }
+
+        /* 动画定义 */
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spinReverse {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(-360deg);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.4;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .loader {
+                width: 90px;
+                height: 90px;
+            }
+
+            .outer-ring {
+                width: 90px;
+                height: 90px;
+            }
+
+            .inner-ring {
+                width: 60px;
+                height: 60px;
+                top: 15px;
+                left: 15px;
+            }
+
+            .loading-text {
+                font-size: 1rem;
+            }
         }
     </style>
     <!-- 结构化数据 -->
@@ -75,7 +219,7 @@
         "@type": "CollectionPage",
         "name": "种植技术 - 内黄县果树协会",
         "description": "专业果树种植技术指导，包括修剪、病虫害防治、施肥管理等",
-        "url": "https://nhxgsxh.com/a/technology/",
+        "url": "https://nhxgsxh.com/a/tech-detail.html",
         "mainEntity": {
             "@type": "ItemList",
             "numberOfItems": 12,
@@ -141,10 +285,24 @@
 
     <!-- 技术搜索区域 -->
     <section class="search-section">
-        <div class="container article-content">
-
-        </div>
+        <div id="article"></div>
     </section>
+    <!-- 悬浮加载动画 -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loader">
+            <div class="outer-ring"></div>
+            <div class="inner-ring"></div>
+            <div class="center-dot"></div>
+        </div>
+        <div class="loading-text" id="loadingText">
+            <span style="--i:1">加</span>
+            <span style="--i:2">载</span>
+            <span style="--i:3">中</span>
+            <span style="--i:4">.</span>
+            <span style="--i:5">.</span>
+            <span style="--i:6">.</span>
+        </div>
+    </div>
     <!-- 页脚 -->
     <footer class="footer">
         <div class="container">
@@ -181,12 +339,125 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2005-<span id="year"></span> 内黄县果树协会. 版权所有.<a target="_blank" style="color: #ccc;" href="https://beian.miit.gov.cn/">豫ICP备2024098861号-1</a></p>
+                <p>&copy; 2005-<span id="year"></span> 内黄县果树协会. 版权所有.<a target="_blank" style="color: #ccc;"
+                        href="https://beian.miit.gov.cn/">豫ICP备2024098861号-1</a></p>
             </div>
         </div>
     </footer>
 
     <script src="/js/main.js"></script>
+    <script>
+        function getUrlParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+        function processPTags(target) {
+            // 判断输入类型
+            let container;
+            let isStringInput = typeof target === 'string';
+
+            if (isStringInput) {
+                // 如果是字符串，创建临时容器
+                container = document.createElement('div');
+                container.innerHTML = target;
+            } else {
+                // 如果是DOM元素，直接使用
+                container = target;
+            }
+
+            // 获取所有的p标签
+            const pTags = container.querySelectorAll('p');
+
+            // 遍历p标签（从后往前遍历，避免删除元素时索引变化的问题）
+            for (let i = pTags.length - 1; i >= 0; i--) {
+                const pTag = pTags[i];
+                const isPTagText = pTag.innerText.includes('关注惠农学堂') || pTag.innerText.includes('以下推荐的内容感兴趣');
+                // 检查p标签内是否包含a标签
+                const hasATag = pTag.querySelector('a') !== null || isPTagText;
+
+                if (hasATag) {
+                    // 如果包含a标签，删除该p标签
+                    pTag.parentNode.removeChild(pTag);
+                }
+                // 如果不包含a标签，什么也不做
+            }
+
+            // 根据输入类型返回相应结果
+            if (isStringInput) {
+                return container.innerHTML;
+            } else {
+                return container;
+            }
+        }
+        // 获取字符串中的img标签，并添加onerror属性
+        function addOnErrorToImgs(htmlString) {
+            // 使用正则表达式匹配所有img标签
+            const imgTagRegex = /<img\s+([^>]*)>/gi;
+
+            return htmlString.replace(imgTagRegex, (match, attributes) => {
+                // 提取src属性值
+                const srcMatch = attributes.match(/\bsrc\s*=\s*["']([^"']*)["']/i);
+                let onerrorValue = "this.style.display='none'"; // 默认值
+
+                if (srcMatch && srcMatch[1]) {
+                    let src = srcMatch[1].split('/')
+                    src = src[src.length - 1]
+                    // 如果有src属性，构造指定的onerror值
+                    onerrorValue = `this.src='/images/study_images/${src}'`;
+                }
+
+                // 检查是否已经有onerror属性
+                const hasOnError = /onerror\s*=/i.test(attributes);
+
+                if (hasOnError) {
+                    // 如果已经有onerror属性，替换它
+                    return match.replace(/onerror\s*=\s*["'][^"']*["']/i, `onerror="${onerrorValue}"`);
+                } else {
+                    // 如果没有onerror属性，在现有属性后添加
+                    return `<img ${attributes} onerror="${onerrorValue}">`;
+                }
+            });
+        }
+        //显示内容的方法
+        function showContent(study, id) {
+            let obj = study.filter((item) => {
+                return item.id === id;
+            })[0];
+            let contentStr = obj.content;
+            let titleStr = obj.title;
+            document.querySelector('title').innerHTML = '内黄县果树协会|河南新品种桃苗基地|' + titleStr;
+            let keyword = obj.keyword;
+            let description = obj.description;
+            document.querySelector('meta[name="keywords"]').setAttribute('content', keyword);
+            document.querySelector('meta[name="description"]').setAttribute('content', '内黄县果树协会现代化农业基地在线分享：' + description.substr(0, 75) + '...');
+            contentStr = addOnErrorToImgs(contentStr);
+            document.getElementById('article').innerHTML =`<h2>${obj.title}</h2>` + processPTags(contentStr);
+        }
+        if (getUrlParam('id')) {
+            let id = Number(getUrlParam('id'));
+            let isUpdateData = 1;//更新study数据时改变此数值
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            if (localStorage.getItem('study') && localStorage.getItem('isUpdateData') && localStorage.getItem('isUpdateData') == isUpdateData) {
+                let study = JSON.parse(localStorage.getItem('study'));
+                showContent(study, id);
+                loadingOverlay.style.display = 'none';//隐藏loading
+            } else {
+                var script = document.createElement('script');
+                script.src = '/js/study.js';
+                // 将script标签添加到页面的head或body中
+                document.head.appendChild(script);
+                script.onload = function () {
+                    study = study.sort((a, b) => b.updateTime - a.updateTime);
+                    let allData = Object.assign([], study);
+                    showContent(study, id);
+                    loadingOverlay.style.display = 'none';//隐藏loading
+                    localStorage.setItem('study', JSON.stringify(allData));
+                    localStorage.setItem('isUpdateData', isUpdateData);
+                }
+            }
+
+        }
+    </script>
 </body>
 
 </html>

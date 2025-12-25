@@ -207,7 +207,6 @@
         // 加载文字动画 - 每个字单独设置动画延迟
         const loadingText = document.getElementById('loadingText');
         const textSpans = loadingText.querySelectorAll('span');
-        let isUpdateData = 1;
         textSpans.forEach((span, index) => {
             span.style.setProperty('--i', index + 1);
         });

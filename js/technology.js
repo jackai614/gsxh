@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         document.getElementById('techArticles').innerHTML = str;
     }
+    let isUpdateData = 1;
     if (localStorage.getItem('study') && localStorage.getItem('isUpdateData') && localStorage.getItem('isUpdateData') == isUpdateData) {
         let study = JSON.parse(localStorage.getItem('study'));
         allData = Object.assign([], study);
