@@ -418,6 +418,7 @@
                 } else {
                     // 如果没有onerror属性，在现有属性后添加
                     // 替换src属性值，保持其他属性不变
+                    let src = srcMatch[1].split('/')
                     const newAttributes = attributes.replace(/\bsrc\s*=\s*["'][^"']*["']/i, `src="/images/study_images/${src}"`);
                     return `<img ${newAttributes} onerror="/images/error.jpg">`;
                 }
