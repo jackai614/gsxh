@@ -330,9 +330,9 @@
                 <div class="footer-section">
                     <h4>会员服务</h4>
                     <ul>
-                        <li><a href="member.html">会员申请</a></li>
+                        <!-- <li><a href="member.html">会员申请</a></li>
                         <li><a href="download.html">资料下载</a></li>
-                        <li><a href="qa.html">常见问题</a></li>
+                        <li><a href="qa.html">常见问题</a></li>  -->
                         <li><a href="/a/contact.html">联系我们</a></li>
                     </ul>
                 </div>
@@ -414,7 +414,7 @@
                     return match.replace(/onerror\s*=\s*["'][^"']*["']/i, `onerror="${onerrorValue}"`);
                 } else {
                     // 如果没有onerror属性，在现有属性后添加
-                    return `<img ${attributes} onerror="${onerrorValue}">`;
+                    return `<img ${attributes} src="${onerrorValue}" onerror="/images/error.jpg">`;
                 }
             });
         }
