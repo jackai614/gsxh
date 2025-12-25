@@ -44,16 +44,19 @@
             padding: 20px;
             box-sizing: border-box;
         }
-        #article{
+
+        #article {
             max-width: 1200px;
             text-align: center;
             box-sizing: border-box;
             padding: 1rem 20px;
             margin: 0 auto;
         }
-        #article h2{
+
+        #article h2 {
             padding: 1rem 0;
         }
+
         .article-content img {
             position: relative;
             top: -45px;
@@ -414,7 +417,9 @@
                     return match.replace(/onerror\s*=\s*["'][^"']*["']/i, `onerror="${onerrorValue}"`);
                 } else {
                     // 如果没有onerror属性，在现有属性后添加
-                    return `<img ${attributes} src="${onerrorValue}" onerror="/images/error.jpg">`;
+                    // 替换src属性值，保持其他属性不变
+                    const newAttributes = attributes.replace(/\bsrc\s*=\s*["'][^"']*["']/i, `src="/images/study_images/${src}"`);
+                    return `<img ${newAttributes} onerror="/images/error.jpg">`;
                 }
             });
         }
@@ -431,7 +436,7 @@
             document.querySelector('meta[name="keywords"]').setAttribute('content', keyword);
             document.querySelector('meta[name="description"]').setAttribute('content', '内黄县果树协会现代化农业基地在线分享：' + description.substr(0, 75) + '...');
             contentStr = addOnErrorToImgs(contentStr);
-            document.getElementById('article').innerHTML =`<h2>${obj.title}</h2>` + processPTags(contentStr);
+            document.getElementById('article').innerHTML = `<h2>${obj.title}</h2>` + processPTags(contentStr);
         }
         if (getUrlParam('id')) {
             let id = Number(getUrlParam('id'));
