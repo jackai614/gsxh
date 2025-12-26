@@ -78,7 +78,7 @@
                 <span class="separator">/</span>
                 <a href="/a/products.html">产品展示</a>
                 <span class="separator">/</span>
-                <span class="current productName">红富士苹果</span>
+                <span class="current productName"></span>
             </div>
             <h1 class="page-title">优质果树产品展示</h1>
             <p class="page-subtitle">精选优质果树产品，包括新鲜水果及优质苗木</p>
@@ -110,7 +110,7 @@
                         <ul>
                             <li><strong>品种:</strong> <span class="productName"></span></li>
                             <li><strong>产地:</strong> 内黄县果树协会示范研究基地</li>
-                            <li><strong>单果重:</strong> <span id="weit"></span></li>
+                            <li id="weight"><strong>单果重:</strong> <span id="weit"></span></li>
                             <!-- <li><strong>甜度:</strong> 18-22°Bx</li> -->
                             <li><strong>成熟期:</strong> <span id="date"></span></li>
                         </ul>
@@ -452,7 +452,8 @@
                     </div>
     `;
     document.getElementById('date').innerText=productObj.maturityStage;
-    document.getElementById('weit').innerText=productObj.weight;
+    productObj.fenlei !=='tree' ? document.getElementById('weit').innerText=productObj.weight : document.getElementById('weight').innerText=`<strong>培育方式:</strong> 扦插培育`;
+    
     </script>
     <script src="/js/product-detail.js"></script>
 </body>
