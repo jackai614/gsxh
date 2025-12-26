@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="内黄县果树协会 - 专业果树种植技术推广、科普示范、农业技术服务">
+    <meta name="keywords" content="内黄县,果树协会,农业技术,果树种植,科普示范">
+    <title>页面未找到 - 内黄县果树协会</title>
+    <style>
+        /* 基础样式 - 与首页保持一致 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header 样式 - 与首页保持一致 */
+        .header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-link {
+            text-decoration: none;
+            color: #2c5e2c;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .logo-link img {
+            width: 120px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 24px;
+            width: 30px;
+            padding: 0;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: #2c5e2c;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #2c5e2c;
+        }
+
+        .nav-link.active {
+            color: #2c5e2c;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #2c5e2c;
+        }
+
+        /* 404 页面主体样式 */
+        .error-section {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 1rem;
+            background: linear-gradient(135deg, #f8fff8 0%, #e8f5e8 100%);
+        }
+
+        .error-container {
+            text-align: center;
+            max-width: 600px;
+            padding: 3rem;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(44, 94, 44, 0.1);
+        }
+
+        .error-icon {
+            font-size: 5rem;
+            color: #2c5e2c;
+            margin-bottom: 1.5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .error-title {
+            font-size: 6rem;
+            font-weight: 700;
+            color: #2c5e2c;
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+
+        .error-subtitle {
+            font-size: 2rem;
+            color: #4a7c4a;
+            margin-bottom: 1.5rem;
+        }
+
+        .error-description {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #2c5e2c;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #1e421e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(44, 94, 44, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #2c5e2c;
+            border-color: #2c5e2c;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(44, 94, 44, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .search-box {
+            margin-top: 2.5rem;
+            position: relative;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.8rem 1rem 0.8rem 3rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #2c5e2c;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+
+        /* 页脚样式 - 与首页保持一致 */
+        .footer {
+            background-color: #2c3e2c;
+            color: #fff;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3, .footer-section h4 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p {
+            color: #ccc;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom a {
+            color: #ccc;
+            margin-left: 0.5rem;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .nav-container {
+                height: 70px;
+            }
+
+            .error-title {
+                font-size: 4rem;
+            }
+
+            .error-subtitle {
+                font-size: 1.5rem;
+            }
+
+            .error-container {
+                padding: 2rem;
+                margin: 0 1rem;
+            }
+
+            .error-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-title {
+                font-size: 3rem;
+            }
+
+            .error-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .error-icon {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 顶部导航栏 - 与首页保持一致 -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-brand">
+                <a href="/" class="logo-link">
+                    <div style="font-weight: bold; color: #2c5e2c; font-size: 1.5rem;">
+                        内黄县果树协会
+                    </div>
+                </a>
+            </div>
+
+            <!-- 移动端菜单按钮 -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="切换菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- 主导航 -->
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="/" class="nav-link">首页</a></li>
+                <li class="nav-item"><a href="/a/about.html" class="nav-link">关于协会</a></li>
+                <li class="nav-item"><a href="/a/news.html" class="nav-link">新闻动态</a></li>
+                <li class="nav-item"><a href="/a/technology.html" class="nav-link">种植技术</a></li>
+                <li class="nav-item"><a href="/a/products.html" class="nav-link">产品展示</a></li>
+                <li class="nav-item"><a href="/a/contact.html" class="nav-link">联系我们</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 404错误内容区域 -->
+    <main>
+        <section class="error-section">
+            <div class="error-container">
+                <div class="error-icon">🌳</div>
+                <h1 class="error-title">404</h1>
+                <h2 class="error-subtitle">页面未找到</h2>
+                <p class="error-description">
+                    抱歉，您访问的页面似乎已经迁移或不存在。<br>
+                    可能的原因：链接已过期、页面已被移除，或者您输入了错误的网址。
+                </p>
+                
+                <div class="error-actions">
+                    <a href="/" class="btn btn-primary">返回首页</a>
+                    <a href="/a/about.html" class="btn btn-secondary">关于协会</a>
+                    <a href="/a/products.html" class="btn btn-secondary">产品展示</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 - 与首页保持一致 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>内黄县果树协会</h3>
+                    <p>专业推广果树种植技术与科普示范</p>
+                    <div class="contact-info">
+                        <p>📞 <a href="tel:13569022233">13569022233</a></p>
+                        <p>📧 <a href="mailto:nhxgsxh@163.com">nhxgsxh@163.com</a></p>
+                        <p>📍 河南省内黄县果树协会示范研究基地</p>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="/">首页</a></li>
+                        <li><a href="/a/about.html">关于协会</a></li>
+                        <li><a href="/a/news.html">新闻动态</a></li>
+                        <li><a href="/a/technology.html">种植技术</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>会员服务</h4>
+                    <ul>
+                        <li><a href="/a/products.html">产品展示</a></li>
+                        <li><a href="/a/contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2005-<span id="currentYear"></span> 内黄县果树协会. 版权所有. 
+                <a target="_blank" href="https://beian.miit.gov.cn/" style="color: #ccc;">豫ICP备2024098861号-1</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+            
+            // 按钮动画
+            const spans = this.querySelectorAll('span');
+            if (navMenu.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+
+        // 设置当前年份
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // 搜索功能
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const query = this.value.trim();
+                if (query) {
+                    // 在实际应用中，这里应该是跳转到搜索页面
+                    // 这里简单模拟搜索，提示用户
+                    alert(`搜索: ${query}\n\n在实际网站中，这将跳转到搜索页面显示相关结果。`);
+                    this.value = '';
+                }
+            }
+        });
+
+        // 点击导航链接时关闭移动端菜单
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                const navMenu = document.getElementById('navMenu');
+                const mobileBtn = document.getElementById('mobileMenuBtn');
+                const spans = mobileBtn.querySelectorAll('span');
+                
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
