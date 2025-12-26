@@ -452,7 +452,7 @@
                     </div>
     `;
     document.getElementById('date').innerText=productObj.maturityStage;
-    productObj.fenlei !=='tree' ? document.getElementById('weit').innerText=productObj.weight : document.getElementById('weight').innerText=`<strong>培育方式:</strong> 扦插培育`;
+    productObj.fenlei !=='tree' ? document.getElementById('weit').innerText=productObj.weight : document.getElementById('weight').innerHTML=`<strong>培育方式:</strong> 扦插培育`;
     
     </script>
     <script src="/js/product-detail.js"></script>
