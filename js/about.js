@@ -216,7 +216,7 @@ const AboutPageSEO = {
             "@type": "AboutPage",
             "name": "关于内黄县果树协会",
             "description": "内黄县果树协会成立于2005年，是经内黄县农业局批准成立的公益性农业技术推广组织",
-            "url": "https://nhxgsxh.com/a/guanyuwomen/",
+            "url": "http://www.nhxgsxh.com/a/guanyuwomen/",
             "mainEntity": {
                 "@type": "Organization",
                 "name": "内黄县果树协会",
@@ -244,13 +244,13 @@ const AboutPageSEO = {
                     "@type": "ListItem",
                     "position": 1,
                     "name": "首页",
-                    "item": "https://nhxgsxh.com"
+                    "item": "http://www.nhxgsxh.com"
                 },
                 {
                     "@type": "ListItem",
                     "position": 2,
                     "name": "关于协会",
-                    "item": "https://nhxgsxh.com/a/guanyuwomen/"
+                    "item": "http://www.nhxgsxh.com/a/guanyuwomen/"
                 }
             ]
         };
