@@ -455,7 +455,7 @@
     `;
         document.getElementById('date').innerText = productObj.maturityStage;
         productObj.fenlei !== 'tree' ? document.getElementById('weit').innerText = productObj.weight : document.getElementById('weight').innerHTML = `<strong>培育方式:</strong> 扦插培育`;
-        let keyword = productObj.name + ',哥仨桃,内黄县果树协会,抗重茬桃苗';
+        let keyword = productObj.name == '抗重茬桃苗' ? '哥仨桃,内黄县果树协会,抗重茬桃苗' : productObj.name + ',哥仨桃,内黄县果树协会,抗重茬桃苗';
         let description = '内黄县果树协会科普示范基地产品-' + productName + '：' + productObj.desc;
         document.querySelector('meta[name="keywords"]').setAttribute('content', keyword);
         document.querySelector('meta[name="description"]').setAttribute('content', description.substr(0, 80) + '...');
