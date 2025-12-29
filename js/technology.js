@@ -357,3 +357,57 @@ function preloadCriticalImages() {
 window.addEventListener('load', function () {
     preloadCriticalImages();
 });
+// 百度seo api提交
+function seoToBaidu() {
+    // 要提交的网址，每行一个
+    const urlList = `http://www.nhxgsxh.com/index.html
+http://www.nhxgsxh.com/a/about.html
+http://www.nhxgsxh.com/a/contact.html
+http://www.nhxgsxh.com/a/products.html
+http://www.nhxgsxh.com/a/product-detail.html?name=抗重茬桃苗
+http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠9号
+http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠7号
+http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠13号
+http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠8号
+http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠10号
+http://www.nhxgsxh.com/a/product-detail.html?name=中油珠玉
+http://www.nhxgsxh.com/a/product-detail.html?name=兴农红2号
+http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠11号
+http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠桃5号
+http://www.nhxgsxh.com/a/product-detail.html?name=中桃颜玉4号
+http://www.nhxgsxh.com/a/product-detail.html?name=锦绣黄桃
+http://www.nhxgsxh.com/a/product-detail.html?name=中油金铭
+http://www.nhxgsxh.com/a/product-detail.html?name=春美
+http://www.nhxgsxh.com/a/technology.html
+http://www.nhxgsxh.com/a/tech-detail.html?id=114796
+
+`;
+
+    // 您的令牌和站点，从请求URL中提取
+    const site = 'www.nhxgsxh.com';
+    const token = 'Mwgq2QXfH1NFuxZZ';
+    const apiUrl = `http://data.zz.baidu.com/urls?site=${site}&token=${token}`;
+
+    // 发送 POST 请求
+    fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'text/plain', // 关键：设置为纯文本
+            'User-Agent': 'curl/7.12.1' // 通常可省略，或设置为自定义标识
+        },
+        body: urlList // 直接发送文本
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.text(); // 或 response.json()，根据服务器返回格式决定
+        })
+        .then(data => {
+            console.log('提交成功！服务器响应:', data);
+        })
+        .catch(error => {
+            console.error('提交出错:', error);
+        });
+}
+seoToBaidu();

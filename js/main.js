@@ -1,11 +1,11 @@
 // 主JavaScript文件 - 内黄县果树协会官网
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // 移动端菜单切换
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navMenu = document.querySelector('.nav-menu');
-    
+
     if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', function() {
+        mobileMenuBtn.addEventListener('click', function () {
             navMenu.classList.toggle('active');
             this.classList.toggle('active');
         });
@@ -19,87 +19,87 @@ document.addEventListener('DOMContentLoaded', function() {
             this.indicators = document.querySelectorAll('.indicator');
             this.prevBtn = document.querySelector('.prev-btn');
             this.nextBtn = document.querySelector('.next-btn');
-            
+
             this.currentSlide = 0;
             this.slideCount = this.slides.length;
             this.autoPlayInterval = null;
             this.autoPlayDelay = 5000; // 5秒自动轮播
-            
+
             this.init();
         }
-        
+
         init() {
             // 绑定事件
             this.prevBtn.addEventListener('click', () => this.prevSlide());
             this.nextBtn.addEventListener('click', () => this.nextSlide());
-            
+
             // 指示器点击事件
             this.indicators.forEach((indicator, index) => {
                 indicator.addEventListener('click', () => this.goToSlide(index));
             });
-            
+
             // 键盘导航
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'ArrowLeft') this.prevSlide();
                 if (e.key === 'ArrowRight') this.nextSlide();
             });
-            
+
             // 触摸滑动支持
             this.addTouchSupport();
-            
+
             // 开始自动播放
             this.startAutoPlay();
-            
+
             // 鼠标悬停时暂停自动播放
             this.sliderTrack.addEventListener('mouseenter', () => this.stopAutoPlay());
             this.sliderTrack.addEventListener('mouseleave', () => this.startAutoPlay());
         }
-        
+
         goToSlide(index) {
             this.currentSlide = index;
             this.updateSlider();
         }
-        
+
         nextSlide() {
             this.currentSlide = (this.currentSlide + 1) % this.slideCount;
             this.updateSlider();
         }
-        
+
         prevSlide() {
             this.currentSlide = (this.currentSlide - 1 + this.slideCount) % this.slideCount;
             this.updateSlider();
         }
-        
+
         updateSlider() {
             // 更新滑块位置
             this.sliderTrack.style.transform = `translateX(-${this.currentSlide * 33.333}%)`;
-            
+
             // 更新活动状态
             this.slides.forEach((slide, index) => {
                 slide.classList.toggle('active', index === this.currentSlide);
             });
-            
+
             this.indicators.forEach((indicator, index) => {
                 indicator.classList.toggle('active', index === this.currentSlide);
             });
         }
-        
+
         addTouchSupport() {
             let startX = 0;
             let endX = 0;
-            
+
             this.sliderTrack.addEventListener('touchstart', (e) => {
                 startX = e.touches[0].clientX;
             });
-            
+
             this.sliderTrack.addEventListener('touchmove', (e) => {
                 endX = e.touches[0].clientX;
             });
-            
+
             this.sliderTrack.addEventListener('touchend', () => {
                 const diff = startX - endX;
                 const threshold = 50; // 滑动阈值
-                
+
                 if (Math.abs(diff) > threshold) {
                     if (diff > 0) {
                         this.nextSlide(); // 向左滑动
@@ -109,14 +109,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }
-        
+
         startAutoPlay() {
             this.stopAutoPlay();
             this.autoPlayInterval = setInterval(() => {
                 this.nextSlide();
             }, this.autoPlayDelay);
         }
-        
+
         stopAutoPlay() {
             if (this.autoPlayInterval) {
                 clearInterval(this.autoPlayInterval);
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     }
-    
+
     // 初始化轮播图
     if (document.querySelector('.slider-container')) {
         new ImageSlider();
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 图片懒加载实现
     const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-    
+
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -156,10 +156,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // 导航栏滚动效果
     let lastScrollTop = 0;
     const header = document.querySelector('.header');
-    
-    window.addEventListener('scroll', function() {
+
+    window.addEventListener('scroll', function () {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
+
         if (scrollTop > lastScrollTop && scrollTop > 100) {
             // 向下滚动
             header.style.transform = 'translateY(-100%)';
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // 向上滚动
             header.style.transform = 'translateY(0)';
         }
-        
+
         // 添加背景色
         if (scrollTop > 50) {
             header.style.background = 'rgba(255, 255, 255, 0.95)';
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
             header.style.background = 'var(--white)';
             header.style.backdropFilter = 'none';
         }
-        
+
         lastScrollTop = scrollTop;
     });
 
@@ -184,20 +184,20 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            
+
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 const headerHeight = header.offsetHeight;
                 const targetPosition = targetElement.offsetTop - headerHeight;
-                
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
                 });
-                
+
                 // 移动端点击后关闭菜单
                 if (navMenu.classList.contains('active')) {
                     navMenu.classList.remove('active');
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 技术分享页面的交互效果
     const techItems = document.querySelectorAll('.tech-item');
     techItems.forEach(item => {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function () {
             // 这里可以添加点击后的跳转逻辑
             const title = this.querySelector('h4').textContent;
             console.log('点击了技术文章:', title);
@@ -240,29 +240,29 @@ document.addEventListener('DOMContentLoaded', function() {
     // 品种卡片悬停效果
     const varietyCards = document.querySelectorAll('.variety-card');
     varietyCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
+        card.addEventListener('mouseenter', function () {
             this.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.15)';
         });
-        
-        card.addEventListener('mouseleave', function() {
+
+        card.addEventListener('mouseleave', function () {
             this.style.boxShadow = 'var(--shadow)';
         });
     });
 
     // 性能监控和错误追踪
-    window.addEventListener('error', function(e) {
+    window.addEventListener('error', function (e) {
         console.error('页面错误:', e.error);
         // 这里可以集成错误上报服务
     });
 
     // 服务Worker注册（如果支持）
     if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             navigator.serviceWorker.register('/sw.js')
-                .then(function(registration) {
+                .then(function (registration) {
                     console.log('ServiceWorker 注册成功: ', registration.scope);
                 })
-                .catch(function(error) {
+                .catch(function (error) {
                     console.log('ServiceWorker 注册失败: ', error);
                 });
         });
@@ -276,18 +276,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 初始化统计
     trackPageView();
-    document.getElementById('year').innerText=new Date().getFullYear();
+    document.getElementById('year').innerText = new Date().getFullYear();
 });
-function bannerLink(url){
-    window.location.href=url;
+function bannerLink(url) {
+    window.location.href = url;
 }
-function linkToTec(id){
-    window.location.href=`/a/tech-detail.html?id=${id}`;
+function linkToTec(id) {
+    window.location.href = `/a/tech-detail.html?id=${id}`;
 }
 // 工具函数
 const Utils = {
     // 防抖函数
-    debounce: function(func, wait) {
+    debounce: function (func, wait) {
         let timeout;
         return function executedFunction(...args) {
             const later = () => {
@@ -300,9 +300,9 @@ const Utils = {
     },
 
     // 节流函数
-    throttle: function(func, limit) {
+    throttle: function (func, limit) {
         let inThrottle;
-        return function(...args) {
+        return function (...args) {
             if (!inThrottle) {
                 func.apply(this, args);
                 inThrottle = true;
@@ -312,7 +312,7 @@ const Utils = {
     },
 
     // 格式化日期
-    formatDate: function(date) {
+    formatDate: function (date) {
         return new Date(date).toLocaleDateString('zh-CN');
     }
 };
@@ -320,7 +320,7 @@ const Utils = {
 // SEO优化相关功能
 const SEOHelper = {
     // 设置结构化数据
-    setStructuredData: function() {
+    setStructuredData: function () {
         const structuredData = {
             "@context": "https://schema.org",
             "@type": "Organization",
@@ -348,7 +348,7 @@ const SEOHelper = {
     },
 
     // 设置规范链接
-    setCanonicalLink: function() {
+    setCanonicalLink: function () {
         const link = document.createElement('link');
         link.rel = 'canonical';
         link.href = window.location.href.split('?')[0]; // 移除参数
@@ -357,7 +357,61 @@ const SEOHelper = {
 };
 
 // 页面加载完成后初始化SEO功能
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     SEOHelper.setStructuredData();
     SEOHelper.setCanonicalLink();
 });
+// 百度seo api提交
+function seoToBaidu() {
+    // 要提交的网址，每行一个
+    const urlList = `http://www.nhxgsxh.com/index.html
+http://www.nhxgsxh.com/a/about.html
+http://www.nhxgsxh.com/a/contact.html
+http://www.nhxgsxh.com/a/products.html
+http://www.nhxgsxh.com/a/product-detail.html?name=抗重茬桃苗
+http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠9号
+http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠7号
+http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠13号
+http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠8号
+http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠10号
+http://www.nhxgsxh.com/a/product-detail.html?name=中油珠玉
+http://www.nhxgsxh.com/a/product-detail.html?name=兴农红2号
+http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠11号
+http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠桃5号
+http://www.nhxgsxh.com/a/product-detail.html?name=中桃颜玉4号
+http://www.nhxgsxh.com/a/product-detail.html?name=锦绣黄桃
+http://www.nhxgsxh.com/a/product-detail.html?name=中油金铭
+http://www.nhxgsxh.com/a/product-detail.html?name=春美
+http://www.nhxgsxh.com/a/technology.html
+http://www.nhxgsxh.com/a/tech-detail.html?id=114796
+
+`;
+
+    // 您的令牌和站点，从请求URL中提取
+    const site = 'www.nhxgsxh.com';
+    const token = 'Mwgq2QXfH1NFuxZZ';
+    const apiUrl = `http://data.zz.baidu.com/urls?site=${site}&token=${token}`;
+
+    // 发送 POST 请求
+    fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'text/plain', // 关键：设置为纯文本
+            'User-Agent': 'curl/7.12.1' // 通常可省略，或设置为自定义标识
+        },
+        body: urlList // 直接发送文本
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.text(); // 或 response.json()，根据服务器返回格式决定
+        })
+        .then(data => {
+            console.log('提交成功！服务器响应:', data);
+        })
+        .catch(error => {
+            console.error('提交出错:', error);
+        });
+}
+seoToBaidu();
