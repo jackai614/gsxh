@@ -1,61 +1,275 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:mobile="http://www.baidu.com/schemas/sitemap-mobile/1/">
-
-<url>
-<mobile:mobile type="pc,mobile"/>
-<loc>http://www.nhxgsxh.com</loc>
-<priority>1.00</priority>
-<lastmod>2025-12-30</lastmod>
-<changefreq>Always</changefreq>
-</url>
-<url>
-<mobile:mobile type="pc,mobile"/>
-<loc>http://www.nhxgsxh.com/a/about.html</loc>
-<priority>0.60</priority>
-<lastmod>2025-12-30</lastmod>
-<changefreq>Always</changefreq>
-</url>
-<url>
-<mobile:mobile type="pc,mobile"/>
-<loc>http://www.nhxgsxh.com/a/technology.html</loc>
-<priority>0.60</priority>
-<lastmod>2025-12-30</lastmod>
-<changefreq>Always</changefreq>
-</url>
-<url>
-<mobile:mobile type="pc,mobile"/>
-<loc>http://www.nhxgsxh.com/a/news.html</loc>
-<priority>0.60</priority>
-<lastmod>2025-12-30</lastmod>
-<changefreq>Always</changefreq>
-</url>
-<url>
-<mobile:mobile type="pc,mobile"/>
-<loc>http://www.nhxgsxh.com/a/products.html</loc>
-<priority>0.60</priority>
-<lastmod>2025-12-30</lastmod>
-<changefreq>Always</changefreq>
-</url>
-<url>
-<mobile:mobile type="pc,mobile"/>
-<loc>http://www.nhxgsxh.com/a/product-detail.html</loc>
-<priority>0.60</priority>
-<lastmod>2025-12-30</lastmod>
-<changefreq>Always</changefreq>
-</url>
-<url>
-<mobile:mobile type="pc,mobile"/>
-<loc>http://www.nhxgsxh.com/a/contact.html</loc>
-<priority>0.60</priority>
-<lastmod>2025-12-30</lastmod>
-<changefreq>Always</changefreq>
-</url>
-<url>
-<mobile:mobile type="pc,mobile"/>
-<loc>http://www.nhxgsxh.com/a/tech-detail.html?id=114796</loc>
-<priority>0.60</priority>
-<lastmod>2025-12-30</lastmod>
-<changefreq>Always</changefreq>
-</url>
+    <url>
+        <mobile:mobile type="pc,mobile"/>
+        <loc>http://www.nhxgsxh.com</loc>
+        <priority>1.00</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile"/>
+        <loc>http://www.nhxgsxh.com/a/about.html</loc>
+        <priority>0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile"/>
+        <loc>http://www.nhxgsxh.com/a/technology.html</loc>
+        <priority>0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile"/>
+        <loc>http://www.nhxgsxh.com/a/news.html</loc>
+        <priority>0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile"/>
+        <loc>http://www.nhxgsxh.com/a/products.html</loc>
+        <priority>0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile"/>
+        <loc>http://www.nhxgsxh.com/a/product-detail.html</loc>
+        <priority>0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile"/>
+        <loc>http://www.nhxgsxh.com/a/contact.html</loc>
+        <priority>0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile"/>
+        <loc>http://www.nhxgsxh.com/a/tech-detail.html?id=114796</loc>
+        <priority>0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=抗重茬桃苗</loc>
+        <priority>
+        0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=兴农红2号</loc>
+        <priority>
+        0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠9号</loc>
+        <priority>
+        0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠7号</loc>
+        <priority>
+        0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠13号</loc>
+        <priority>
+        0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠8号</loc>
+        <priority>
+        0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠10号</loc>
+        <priority>
+        0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠11号</loc>
+        <priority>
+        0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠桃5号</loc>
+        <priority>
+        0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=中油珠玉</loc>
+        <priority>
+        0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=中桃颜玉4号</loc>
+        <priority>
+        0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=锦绣黄桃</loc>
+        <priority>
+        0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=中油金铭</loc>
+        <priority>
+        0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=8-18黄肉桃</loc>
+        <priority>
+        0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=春蜜</loc>
+        <priority>0.60
+    </priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=春美</loc>
+        <priority>0.60
+    </priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=秋彤桃</loc>
+        <priority>0.60
+    </priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=映霜红</loc>
+        <priority>0.60
+    </priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=国庆红</loc>
+        <priority>0.60
+    </priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=锦园黄桃</loc>
+        <priority>
+        0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=中蟠11号</loc>
+        <priority>
+        0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=中蟠13号</loc>
+        <priority>
+        0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=中油16油桃</loc>
+        <priority>
+        0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=中油18油桃</loc>
+        <priority>
+        0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=中油8号</loc>
+        <priority>
+        0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=中油金瑞</loc>
+        <priority>
+        0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
+    <url>
+        <mobile:mobile type="pc,mobile" />
+        <loc>http://www.nhxgsxh.com/a/product-detail.html?name=中油21</loc>
+        <priority>
+        0.60</priority>
+        <lastmod>2025-12-30</lastmod>
+        <changefreq>Always</changefreq>
+    </url>
 </urlset>
