@@ -326,7 +326,7 @@ const SEOHelper = {
             "@type": "Organization",
             "name": "内黄县果树协会",
             "url": "http://www.nhxgsxh.com",
-            "logo": "http://www.nhxgsxh.com/images/logo.png",
+            "logo": "http://www.nhxgsxh.com/images/logo.webp",
             "description": "内黄县果树协会 - 专业果树种植技术推广、科普示范、农业技术服务",
             "address": {
                 "@type": "PostalAddress",
