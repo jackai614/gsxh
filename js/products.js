@@ -5,20 +5,15 @@ var datas = [
         "fenlei": "tree",
         "name": "抗重茬桃苗",
         "desc": "抗重茬桃苗是利用抗重茬砧木进行无性繁殖的扦插苗木，主要克服桃树种植中的再植障碍问题，其特点在于他的抗重茬病、抗根结线虫、抗干旱、耐瘠薄、长势旺盛、接穗亲和力更强，有助于果树的提前丰产。",
-        "img": "/images/productions/peach/kangzhen1hao.jpg"
+        "img": "/images/productions/peach/kangzhen1hao.webp"
     },
     {
         "fenlei": "wildPeach",
         "name": "兴农红2号",
         "desc": "特早熟桃品种兴农红2号，是2017年河南省林木审定委员会审定的良种极早熟个头大，品质好，露天种植，大棚的价钱，是极早熟品种的首选。",
-        "img": "/images/productions/peach/tao1.jpg"
+        "img": "/images/productions/peach/tao1.webp"
     },
     {
-        "fenlei": "wildPeach",
-        "name": "兴农红",
-        "desc": "果面全红，果肉白色，完全成熟时近表皮处有红色沉淀；肉质细脆，不溶质，果汁中多，有香味，果实成熟后可挂树15～20天不落，果实硬度8.3kg/cm2，常温保存期14～15天.五一正式上市.",
-        "img": "/images/productions/peach/tao2.jpg"
-    }, {
         "fenlei": "doughnutPeach",
         "name": "中油蟠9号",
         "desc": " 中油蟠9号，单果重200克，大果350克。果肉黄色，半不溶质、致密，风味浓甜，可溶性固形物15%。品质上，黏核，丰产。郑州地区7月上中旬成熟，需套袋栽培。",
