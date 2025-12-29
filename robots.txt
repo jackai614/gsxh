@@ -1,4 +1,4 @@
 ﻿User-agent:*
 Disallow:
 
-Sitemap:http://nhxgsxh.com/sitemap.xml
+Sitemap:http://www.nhxgsxh.com/sitemap.xml
