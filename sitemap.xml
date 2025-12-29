@@ -1,50 +1,58 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:mobile="http://www.baidu.com/schemas/sitemap-mobile/1/">
 
 <url>
+<mobile:mobile type="pc,mobile"/>
 <loc>http://www.nhxgsxh.com</loc>
 <priority>1.00</priority>
 <lastmod>2025-12-30</lastmod>
 <changefreq>Always</changefreq>
 </url>
 <url>
-<loc>http://www.nhxgsxh.com/a/news.html</loc>
-<priority>0.60</priority>
-<lastmod>2025-12-30</lastmod>
-<changefreq>Always</changefreq>
-</url>
-<url>
-<loc>http://www.nhxgsxh.com/a/technology.html</loc>
-<priority>0.60</priority>
-<lastmod>2025-12-30</lastmod>
-<changefreq>Always</changefreq>
-</url>
-<url>
+<mobile:mobile type="pc,mobile"/>
 <loc>http://www.nhxgsxh.com/a/about.html</loc>
 <priority>0.60</priority>
 <lastmod>2025-12-30</lastmod>
 <changefreq>Always</changefreq>
 </url>
 <url>
+<mobile:mobile type="pc,mobile"/>
+<loc>http://www.nhxgsxh.com/a/technology.html</loc>
+<priority>0.60</priority>
+<lastmod>2025-12-30</lastmod>
+<changefreq>Always</changefreq>
+</url>
+<url>
+<mobile:mobile type="pc,mobile"/>
+<loc>http://www.nhxgsxh.com/a/news.html</loc>
+<priority>0.60</priority>
+<lastmod>2025-12-30</lastmod>
+<changefreq>Always</changefreq>
+</url>
+<url>
+<mobile:mobile type="pc,mobile"/>
 <loc>http://www.nhxgsxh.com/a/products.html</loc>
 <priority>0.60</priority>
 <lastmod>2025-12-30</lastmod>
 <changefreq>Always</changefreq>
 </url>
 <url>
-<loc>http://www.nhxgsxh.com/a/contact.html</loc>
-<priority>0.60</priority>
-<lastmod>2025-12-30</lastmod>
-<changefreq>Always</changefreq>
-</url>
-<url>
+<mobile:mobile type="pc,mobile"/>
 <loc>http://www.nhxgsxh.com/a/product-detail.html</loc>
 <priority>0.60</priority>
 <lastmod>2025-12-30</lastmod>
 <changefreq>Always</changefreq>
 </url>
 <url>
+<mobile:mobile type="pc,mobile"/>
+<loc>http://www.nhxgsxh.com/a/contact.html</loc>
+<priority>0.60</priority>
+<lastmod>2025-12-30</lastmod>
+<changefreq>Always</changefreq>
+</url>
+<url>
+<mobile:mobile type="pc,mobile"/>
 <loc>http://www.nhxgsxh.com/a/tech-detail.html?id=114796</loc>
 <priority>0.60</priority>
 <lastmod>2025-12-30</lastmod>
