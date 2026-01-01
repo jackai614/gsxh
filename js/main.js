@@ -390,7 +390,7 @@ http://www.nhxgsxh.com/a/tech-detail.html?id=114796
     // 您的令牌和站点，从请求URL中提取
     const site = 'www.nhxgsxh.com';
     const token = 'Mwgq2QXfH1NFuxZZ';
-    const apiUrl = `http://data.zz.baidu.com/urls?site=${site}&token=${token}`;
+    const apiUrl = `http://data.zz.baidu.com/urls?site=${site}&token=${token}HTTP/1.1`;
 
     // 发送 POST 请求
     fetch(apiUrl, {
@@ -414,4 +414,5 @@ http://www.nhxgsxh.com/a/tech-detail.html?id=114796
             console.error('提交出错:', error);
         });
 }
+
 seoToBaidu();
