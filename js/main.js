@@ -375,22 +375,12 @@ http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠13号
 http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠8号
 http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠10号
 http://www.nhxgsxh.com/a/product-detail.html?name=中油珠玉
-http://www.nhxgsxh.com/a/product-detail.html?name=兴农红2号
-http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠11号
-http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠桃5号
-http://www.nhxgsxh.com/a/product-detail.html?name=中桃颜玉4号
-http://www.nhxgsxh.com/a/product-detail.html?name=锦绣黄桃
-http://www.nhxgsxh.com/a/product-detail.html?name=中油金铭
-http://www.nhxgsxh.com/a/product-detail.html?name=春美
-http://www.nhxgsxh.com/a/technology.html
-http://www.nhxgsxh.com/a/tech-detail.html?id=114796
-
-`;
+http://www.nhxgsxh.com/a/technology.html`;
 
     // 您的令牌和站点，从请求URL中提取
     const site = 'www.nhxgsxh.com';
     const token = 'Mwgq2QXfH1NFuxZZ';
-    const apiUrl = `http://data.zz.baidu.com/urls?site=${site}&token=${token}HTTP/1.1`;
+    const apiUrl = `http://data.zz.baidu.com/urls?site=${site}&token=${token}`;
 
     // 发送 POST 请求
     fetch(apiUrl, {
@@ -416,3 +406,4 @@ http://www.nhxgsxh.com/a/tech-detail.html?id=114796
 }
 
 seoToBaidu();
+
