@@ -368,14 +368,14 @@ function seoToBaidu() {
 http://www.nhxgsxh.com/a/about.html
 http://www.nhxgsxh.com/a/contact.html
 http://www.nhxgsxh.com/a/products.html
-http://www.nhxgsxh.com/a/product-detail.html?name=抗重茬桃苗
-http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠9号
-http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠7号
-http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠13号
-http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠8号
-http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠10号
-http://www.nhxgsxh.com/a/product-detail.html?name=中油珠玉
 http://www.nhxgsxh.com/a/technology.html`;
+// http://www.nhxgsxh.com/a/product-detail.html?name=抗重茬桃苗
+// http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠9号
+// http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠7号
+// http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠13号
+// http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠8号
+// http://www.nhxgsxh.com/a/product-detail.html?name=中油蟠10号
+// http://www.nhxgsxh.com/a/product-detail.html?name=中油珠玉
 
     // 您的令牌和站点，从请求URL中提取
     const site = 'www.nhxgsxh.com';
